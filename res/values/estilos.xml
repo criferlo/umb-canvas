@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- tema para toda la app -->
+
+    <style name="tema" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/fondoBarra</item>
+        <item name="android:windowBackground">@color/fondo</item>
+    </style>
+
+    <style name="fondoBarra" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/titulofondo</item>
+        <item name="android:titleTextStyle">@style/estilotitulo</item>
+    </style>
+
+    <style name="estilotitulo" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/titulotexto</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- tema para toda la app -->
+
+	<!-- tipos de letra -->
+    <style name="tipoFuente" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <style name="tipoFuente.resaltado">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/resaltado</item>
+    </style>
+
+    <style name="soloNumeros">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:inputType">number</item>
+    </style>
+    
+    <!-- tipos de letra -->
+    
+    <!-- botones -->
+    <style name="boton">
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <!-- fin botones -->
+
+</resources>
