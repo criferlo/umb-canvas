@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="titulo">UMB-Modelo de negocios CANVAS</string>
     <string name="title_activity_inicial_canvas">InicialCanvasActivity</string>
+    <string name="title_activity_splash_screen">Canvas App</string>
 
 </resources>

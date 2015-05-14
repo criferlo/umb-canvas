@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="blanco">#FFFFFF</color>
-    <color name="resaltado">#924A0C</color>
+    <color name="resaltado">#FF8000</color>
     <color name="fondo">#000000</color>
     <color name="titulotexto">#FFFFFF</color>
     <color name="titulofondo">#24353D</color>
+    <color name="cajastexto">#FFFF98</color>
 </resources>

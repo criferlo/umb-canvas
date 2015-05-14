@@ -21,8 +21,8 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 	}
 
 	@Override
-	public long crear(Object obj) {
-		
+	public long crear(Object obj) throws Exception{
+		//probado
 		EntidadPlan plan = new EntidadPlan();
 		plan =(EntidadPlan)obj;
 		SQLiteDatabase data = this.getWritableDatabase();
@@ -36,19 +36,46 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 	}
 
 	@Override
-	public boolean modificar(Object obj) {
-		return true;		
+	public boolean modificar(Object obj) throws Exception{
+		//probado
+		EntidadPlan plan = new EntidadPlan();
+		plan =(EntidadPlan)obj;
+		SQLiteDatabase data = this.getWritableDatabase();
+		ContentValues valores = new ContentValues();
+		valores.put("nombre", plan.getNombre());
+		valores.put("descripcion", plan.getDescripcion());
+		valores.put("creador",plan.getCreador());		
+		String[] args = {plan.getId()+""};
+		//retorna el numero de registros  afectados
+		long id = data.update("plan", valores, "id=?",args);		
+		data.close();
+		if(id>0){
+			return true;
+		}else{
+			return false;
+		}					
 	}
 
 	@Override
-	public boolean eliminar(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean eliminar(Object obj) throws Exception{
+		//probado
+		EntidadPlan plan = new EntidadPlan();
+		plan =(EntidadPlan)obj;
+		SQLiteDatabase data = this.getWritableDatabase();
+		String[] args = {plan.getId()+""};
+		long id =data.delete("plan", "id=?", args);
+		data.close();
+		if(id>0){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	@Override
-	public Object consultarUno(long id) {
-		
+	public Object consultarUno(long id) throws Exception{
+		//probado
 		SQLiteDatabase data = this.getReadableDatabase();
 		String[] columns = {"id","nombre","descripcion","creador"};
 		String[] whereArgs = {String.valueOf(id)};
@@ -72,15 +99,59 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 	}
 
 	@Override
-	public ArrayList<Object> consultarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Object> consultarTodos() throws Exception{
+		//probado
+		SQLiteDatabase data = this.getReadableDatabase();
+		String[] columns = {"id","nombre","descripcion","creador"};
+		Cursor cursor = data.query("plan", columns, null, null, null, null, null);
+		
+		EntidadPlan entidad = null;
+		ArrayList<Object> lista=null;; 
+		
+		if(cursor.moveToFirst()){
+			
+			lista = new ArrayList<Object>();
+			do{
+				entidad = new EntidadPlan();
+				entidad.setId(cursor.getLong(0));
+				entidad.setNombre(cursor.getString(1));
+				entidad.setDescripcion(cursor.getString(2));
+				entidad.setCreador(cursor.getString(3));
+				lista.add(entidad);
+			}while(cursor.moveToNext());
+		}
+		else{
+			return null;
+		}
+		return lista;
 	}
 
 	@Override
-	public ArrayList<Object> consultarLike(String parte) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Object> consultarLike(String parte) throws Exception{
+		SQLiteDatabase data = this.getReadableDatabase();
+		String[] columns = {"id","nombre","descripcion","creador"};
+		String[] args = {parte};
+		Cursor cursor = data.query("plan", columns, "descripcion like '%?%'", args , null, null, null);
+		
+		EntidadPlan entidad = null;
+		ArrayList<Object> lista=null;; 
+		
+		if(cursor.moveToFirst()){
+			
+			lista = new ArrayList<Object>();
+			do{
+				entidad = new EntidadPlan();
+				entidad.setId(cursor.getLong(0));
+				entidad.setNombre(cursor.getString(1));
+				entidad.setDescripcion(cursor.getString(2));
+				entidad.setCreador(cursor.getString(3));
+				lista.add(entidad);
+			}while(cursor.moveToNext());
+		}
+		else{
+			return null;
+		}
+		return lista;
 	}
 
 	@Override

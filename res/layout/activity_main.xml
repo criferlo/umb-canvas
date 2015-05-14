@@ -25,7 +25,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/soloNumeros"
+        style="@style/tipoFuente.cajastexto"
          />
 
     <Button
@@ -37,4 +37,16 @@
         style="@style/boton"
         android:text="Button" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="clic"
+        
+        android:background="@drawable/botonicono"
+        style="@style/botonicono"
+         />
+    
+    
+    
 </LinearLayout>

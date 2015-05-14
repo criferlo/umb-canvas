@@ -1,5 +1,7 @@
 package com.umb;
 
+import java.util.ArrayList;
+
 import com.umb.datos.BaseHelper;
 import com.umb.datos.PlanHelper;
 import com.umb.datos.entidades.EntidadPlan;
@@ -24,35 +26,81 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		setTitle("Canvas");
 		crearBD();
+		
 	}
 
-	
-	
 	private void crearBD() {
-		BaseHelper baseHelper = new BaseHelper(this,Constantes.getNombreBD(),null,Constantes.getVersionBd());
+		BaseHelper baseHelper = new BaseHelper(this, Constantes.getNombreBD(),
+				null, Constantes.getVersionBd());
 		SQLiteDatabase base = baseHelper.getWritableDatabase();
-		if(base!=null){			
+		if (base != null) {
 			base.close();
-		}
-		else{
-			Log.e("estado","ups! error base nula");
+		} else {
+			Log.e("estado", "ups! error base nula");
 		}
 	}
-	public void clic(View view){
-		//Intent intent = new Intent(this, InicialCanvasActivity.class);
-		//startActivity(intent);
-		PlanHelper plan = new PlanHelper(this,null,null,Constantes.getVersionBd());
-		EntidadPlan  ep = new EntidadPlan();
+
+	public void clic(View view) {
+		Intent intent = new Intent(this, InicialCanvasActivity.class);
+		startActivity(intent);
+		overridePendingTransition(R.anim.zoom_entra, R.anim.zoom_sale);
+		/*
+		PlanHelper plan = new PlanHelper(this, null, null,
+				Constantes.getVersionBd());
+		EntidadPlan ep = new EntidadPlan();
 		ep.setCreador("CristhianLombana");
 		ep.setDescripcion("DescripcionCanvas");
 		ep.setNombre("CanvasFutbol");
-		long id =  plan.crear(ep);
-		Log.e("id", id+"");
+		long id = -1;
+		try {
+			id = plan.crear(ep);
+			Log.e("id", id + "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		ep = new EntidadPlan();
-		ep = (EntidadPlan) plan.consultarUno(id);
-		Log.e("dato",ep.getDescripcion()+ep.getCreador());
+		try {
+			ep = (EntidadPlan) plan.consultarUno(id);
+			Log.e("dato", ep.getDescripcion() + ep.getCreador());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// modificar
+		ep.setCreador("Otro creador");
+		try {
+			if (plan.modificar(ep)) {
+				Log.e("modificado", "si");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// consultartodos
+		try {
+			ArrayList<Object> lista = plan.consultarTodos();
+			if (lista != null) {
+				Log.e("consultados", lista.size() + "");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// eliminar
+		try {
+			if (plan.eliminar(ep)) {
+				Log.e("eliminado", "si");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
