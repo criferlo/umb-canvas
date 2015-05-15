@@ -7,5 +7,10 @@
     <string name="titulo">UMB-Modelo de negocios CANVAS</string>
     <string name="title_activity_inicial_canvas">InicialCanvasActivity</string>
     <string name="title_activity_splash_screen">Canvas App</string>
-
+	<!-- crear canvas -->
+	<string name="cc_informacion">Información</string>
+	<string name="cc_nombre">Nombre del canvas</string>
+	<string name="cc_descripcion">Descripción</string>
+	<string name="cc_autor">Autor</string>
+	<!-- fin crear canvas -->
 </resources>

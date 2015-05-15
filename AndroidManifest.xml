@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/icono_canvas"
         android:label=""
-        android:theme="@style/tema" >
+        android:theme="@style/temaPersonalizado" >
         <activity
             android:name=".InicialCanvasActivity"
             android:label="@string/title_activity_inicial_canvas" >

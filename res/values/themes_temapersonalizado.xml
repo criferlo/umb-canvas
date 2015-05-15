@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="temaPersonalizado" parent="android:Theme.Holo">
+
+    <!-- barra -->
+    <item name="android:actionBarStyle">@style/fondoBarra</item>
+    <item name="android:windowBackground">@color/fondo</item>
+    <!--  -->  
+      
+    <item name="android:editTextBackground">@drawable/temapersonalizado_edit_text_holo_dark</item>
+
+    <item name="android:textColorHighlight">#99ff8000</item>
+    <item name="android:textSelectHandleLeft">@drawable/temapersonalizado_text_select_handle_left</item>
+    <item name="android:textSelectHandleRight">@drawable/temapersonalizado_text_select_handle_right</item>
+    <item name="android:textSelectHandle">@drawable/temapersonalizado_text_select_handle_middle</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewtemaPersonalizado</item>
+
+    <item name="android:listChoiceIndicatorMultiple">@drawable/temapersonalizado_btn_check_holo_dark</item>
+
+    <item name="android:listChoiceIndicatorSingle">@drawable/temapersonalizado_btn_radio_holo_dark</item>
+
+    <item name="android:buttonStyle">@style/ButtontemaPersonalizado</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtontemaPersonalizado</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/SpinnertemaPersonalizado</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBartemaPersonalizado</item>
+
+    <item name="android:seekBarStyle">@style/SeekBartemaPersonalizado</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBartemaPersonalizado</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigtemaPersonalizado</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmalltemaPersonalizado</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggletemaPersonalizado</item>
+
+    <item name="android:listChoiceBackgroundIndicator">@drawable/temapersonalizado_list_selector_holo_dark</item>
+
+    <item name="android:activatedBackgroundIndicator">@drawable/temapersonalizado_activated_background_holo_dark</item>
+
+    <item name="android:fastScrollThumbDrawable">@drawable/temapersonalizado_fastscroll_thumb_holo</item>
+
+  </style>
+
+</resources>

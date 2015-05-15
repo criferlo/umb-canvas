@@ -5,7 +5,7 @@ public class EntidadPlan {
 	private long id;
 	private String nombre;
 	private String descripcion;
-	private String creador;
+	private String autor;
 	
 	public long getId() {
 		return id;
@@ -25,12 +25,13 @@ public class EntidadPlan {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public String getCreador() {
-		return creador;
+	public String getAutor() {
+		return autor;
 	}
-	public void setCreador(String creador) {
-		this.creador = creador;
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
+	
 	
 	
 }

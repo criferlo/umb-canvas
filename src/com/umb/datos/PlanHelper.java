@@ -29,7 +29,7 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 		ContentValues valores = new ContentValues();
 		valores.put("nombre", plan.getNombre());
 		valores.put("descripcion", plan.getDescripcion());
-		valores.put("creador",plan.getCreador());
+		valores.put("creador",plan.getAutor());
 		long id = data.insert("plan", null, valores);
 		data.close();
 		return id;
@@ -44,7 +44,7 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 		ContentValues valores = new ContentValues();
 		valores.put("nombre", plan.getNombre());
 		valores.put("descripcion", plan.getDescripcion());
-		valores.put("creador",plan.getCreador());		
+		valores.put("creador",plan.getAutor());		
 		String[] args = {plan.getId()+""};
 		//retorna el numero de registros  afectados
 		long id = data.update("plan", valores, "id=?",args);		
@@ -89,7 +89,7 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 				entidad.setId(cursor.getLong(0));
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
-				entidad.setCreador(cursor.getString(3));
+				entidad.setAutor(cursor.getString(3));
 			}while(cursor.moveToNext());
 		}
 		else{
@@ -116,7 +116,7 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 				entidad.setId(cursor.getLong(0));
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
-				entidad.setCreador(cursor.getString(3));
+				entidad.setAutor(cursor.getString(3));
 				lista.add(entidad);
 			}while(cursor.moveToNext());
 		}
@@ -144,7 +144,7 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 				entidad.setId(cursor.getLong(0));
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
-				entidad.setCreador(cursor.getString(3));
+				entidad.setAutor(cursor.getString(3));
 				lista.add(entidad);
 			}while(cursor.moveToNext());
 		}

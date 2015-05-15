@@ -123,7 +123,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 				entidad.setId(cursor.getLong(0));
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
-				entidad.setCreador(cursor.getString(3));
+				entidad.setAutor(cursor.getString(3));
 				lista.add(entidad);
 			} while (cursor.moveToNext());
 		} else {
