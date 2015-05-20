@@ -17,7 +17,7 @@ public class PlanHelper extends SQLiteOpenHelper implements ICrud {
 
 	public PlanHelper(Context context, String name, CursorFactory factory,
 			int version) {
-		super(context, Constantes.getNombreBD(), factory, version);
+		super(context, Constantes.getNombreBD(), factory, Constantes.getVersionBd());
 	}
 
 	@Override

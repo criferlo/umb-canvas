@@ -23,6 +23,7 @@
         android:text="@string/cc_nombre" />
 
     <EditText
+        style="@style/tipoFuente.cajastexto"
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,6 +36,7 @@
         android:text="@string/cc_descripcion" />
 
     <EditText
+        style="@style/tipoFuente.cajastexto"
         android:id="@+id/txtDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

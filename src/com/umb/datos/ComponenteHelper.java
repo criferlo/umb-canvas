@@ -12,12 +12,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.umb.datos.entidades.EntidadComponente;
 import com.umb.datos.entidades.EntidadPlan;
 import com.umb.datos.interfaces.ICrud;
+import com.umb.util.Constantes;
 
 public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 
 	public ComponenteHelper(Context context, String name,
 			CursorFactory factory, int version) {
-		super(context, name, factory, version);
+		super(context, Constantes.getNombreBD(), factory, Constantes.getVersionBd());
 		// TODO Auto-generated constructor stub
 	}
 
@@ -32,7 +33,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		valores.put("nombre", plan.getNombre());
 		valores.put("descripcion", plan.getDescripcion());
 		valores.put("plan_id", plan.getPlan_id());
-		valores.put("tipocomponente_id", plan.getTipocomponente_id());
+		valores.put("tipocomponente_id", plan.getTipocomponente());
 		long id = data.insert("componente", null, valores);
 		data.close();
 		return id;
@@ -49,7 +50,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		valores.put("nombre", plan.getNombre());
 		valores.put("descripcion", plan.getDescripcion());
 		valores.put("plan_id", plan.getPlan_id());
-		valores.put("tipocomponente_id", plan.getTipocomponente_id());
+		valores.put("tipocomponente", plan.getTipocomponente());
 		String[] args = { plan.getId() + "" };
 		// retorna el numero de registros afectados
 		long id = data.update("componente", valores, "id=?", args);
@@ -82,7 +83,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		// probado
 		SQLiteDatabase data = this.getReadableDatabase();
 		String[] columns = { "id", "nombre", "descripcion", "plan_id",
-				"tipocomponente_id" };
+				"tipocomponente" };
 		String[] whereArgs = { String.valueOf(id) };
 		Cursor cursor = data.query("componente", columns, "id=?", whereArgs,
 				null, null, null);
@@ -96,7 +97,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
 				entidad.setPlan_id(cursor.getLong(3));
-				entidad.setTipocomponente_id(cursor.getLong(4));
+				entidad.setTipocomponente(cursor.getString(4));
 			} while (cursor.moveToNext());
 		} else {
 			return null;
@@ -108,7 +109,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 	public ArrayList<Object> consultarTodos() throws Exception {
 		// probado
 		SQLiteDatabase data = this.getReadableDatabase();
-		String[] columns = { "id", "nombre", "descripcion", "plan_id","tipocomponente_id" };
+		String[] columns = { "id", "nombre", "descripcion", "plan_id","tipocomponente" };
 		Cursor cursor = data.query("componente", columns, null, null, null, null,
 				null);
 
@@ -132,6 +133,35 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		return lista;
 	}
 
+	
+	public ArrayList<Object> consultarTodosPorPlanyTipo(long idplan,String tipo) throws Exception {
+		// probado
+		SQLiteDatabase data = this.getReadableDatabase();
+		String[] columns = { "id", "nombre", "descripcion", "plan_id","tipocomponente" };
+		String[] whereArgs =  {idplan+"",tipo};
+		Cursor cursor = data.query("componente", columns, "plan_id=? and tipocomponente=?", whereArgs, null, null,
+				null);
+
+		EntidadPlan entidad = null;
+		ArrayList<Object> lista = null;		
+
+		if (cursor.moveToFirst()) {
+
+			lista = new ArrayList<Object>();
+			do {
+				entidad = new EntidadPlan();
+				entidad.setId(cursor.getLong(0));
+				entidad.setNombre(cursor.getString(1));
+				entidad.setDescripcion(cursor.getString(2));
+				entidad.setAutor(cursor.getString(3));
+				lista.add(entidad);
+			} while (cursor.moveToNext());
+		} else {
+			return null;
+		}
+		return lista;
+	}
+	
 	@Override
 	public ArrayList<Object> consultarLike(String parte) throws Exception {
 		// TODO Auto-generated method stub

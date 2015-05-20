@@ -6,7 +6,7 @@ public class EntidadComponente {
 	private String nombre;
 	private String descripcion;
 	private long plan_id;
-	private long tipocomponente_id;
+	private String tipocomponente;
 	
 	public long getId() {
 		return id;
@@ -32,12 +32,13 @@ public class EntidadComponente {
 	public void setPlan_id(long plan_id) {
 		this.plan_id = plan_id;
 	}
-	public long getTipocomponente_id() {
-		return tipocomponente_id;
+	public String getTipocomponente() {
+		return tipocomponente;
 	}
-	public void setTipocomponente_id(long tipocomponente_id) {
-		this.tipocomponente_id = tipocomponente_id;
+	public void setTipocomponente(String tipocomponente) {
+		this.tipocomponente = tipocomponente;
 	}
+	
 	
 	
 }

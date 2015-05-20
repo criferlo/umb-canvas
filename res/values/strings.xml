@@ -7,10 +7,42 @@
     <string name="titulo">UMB-Modelo de negocios CANVAS</string>
     <string name="title_activity_inicial_canvas">InicialCanvasActivity</string>
     <string name="title_activity_splash_screen">Canvas App</string>
-	<!-- crear canvas -->
-	<string name="cc_informacion">Información</string>
-	<string name="cc_nombre">Nombre del canvas</string>
-	<string name="cc_descripcion">Descripción</string>
-	<string name="cc_autor">Autor</string>
-	<!-- fin crear canvas -->
+    <!-- crear canvas -->
+    <string name="cc_informacion">Información</string>
+    <string name="cc_nombre">Nombre del canvas</string>
+    <string name="cc_descripcion">Descripción</string>
+    <string name="cc_autor">Autor</string>
+    <!-- fin crear canvas -->
+    <!-- avisos -->
+    <string name="grabado_exito">Grabado con éxito</string>
+    <string name="grabado_noexito">No pudo grabarse</string>
+    <string name="modificado_exito">Modificado con éxito</string>
+    <string name="modificado_noexito">No se pudo modificar</string>
+    <string name="eliminado_exito">Eliminado con éxito</string>
+    <string name="eliminado_noexito">No se pudo eliminar</string>
+    <!-- fin avisos -->
+
+
+    <!-- menu canvas -->
+    <string name="title_activity_canvas"></string>
+    <string name="titulo1boton">Socios clave</string>
+    <string name="titulo2boton">Actividades clave</string>
+    <string name="titulo3boton">Propuesta de valor</string>
+    <string name="titulo4boton">Relación con cliente</string>
+    <string name="titulo5boton">Segmentos de clientes</string>
+    <string name="titulo6boton">Recursos clave</string>
+    <string name="titulo7boton">Canales de distribución</string>
+    <string name="titulo8boton">Estructura de costos</string>
+    <string name="titulo9boton">Fuentes de ingreso</string>
+    <!-- menu canvas -->
+
+
+    <!-- cuando no tiene detalle aun -->
+    <string name="title_activity_sin_detalle">SinDetalleActivity</string>
+    <string name="creanuevo">Crea uno nuevo!!</string>
+    <!-- cuando no tiene detalle aun -->
+
+    <string name="title_activity_detalle">DetalleActivity</string>
+    <string name="title_activity_crear_detalle">CrearDetalleActivity</string>
+
 </resources>

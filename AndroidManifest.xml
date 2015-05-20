@@ -18,18 +18,32 @@
             android:label="@string/title_activity_inicial_canvas" >
         </activity>
         <activity android:name=".MainActivity" >
-           
         </activity>
         <activity
             android:name=".SplashScreenActivity"
-            android:label="@string/title_activity_splash_screen" 
-            android:theme="@style/temaSplash"
-            >
-             <intent-filter>
+            android:label="@string/title_activity_splash_screen"
+            android:theme="@style/temaSplash" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CanvasActivity"
+            android:label="@string/title_activity_canvas" >
+        </activity>
+        <activity
+            android:name=".SinDetalleActivity"
+            android:label="@string/title_activity_sin_detalle" >
+        </activity>
+        <activity
+            android:name=".DetalleActivity"
+            android:label="@string/title_activity_detalle" >
+        </activity>
+        <activity
+            android:name=".CrearDetalleActivity"
+            android:label="@string/title_activity_crear_detalle" >
         </activity>
     </application>
 

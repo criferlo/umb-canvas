@@ -22,8 +22,6 @@ public class BaseHelper extends SQLiteOpenHelper {
 			// crear
 			db.execSQL(Constantes.getSentenciaCrearTablaPlan());
 			Log.e("basehelper", "se crea tabla plan - oncreate ");
-			db.execSQL(Constantes.getSentenciaCrearTablaTipoComponente());
-			Log.e("basehelper", "se crea tabla tipo componente - oncreate ");
 			db.execSQL(Constantes.getSentenciaCrearTablaComponente());
 			Log.e("basehelper", "se crea tabla componente - oncreate ");
 		} catch (Exception ex) {
@@ -38,15 +36,11 @@ public class BaseHelper extends SQLiteOpenHelper {
 			// borrar
 			Log.e("basehelper", "se borra tabla plan - onupgrade");
 			db.execSQL(Constantes.getSentenciaBorrarTablaPlan());
-			Log.e("basehelper", "se borra tabla tipo componente - onupgrade");
-			db.execSQL(Constantes.getSentenciaBorrarTablaTipoComponente());
 			Log.e("basehelper", "se borra tabla componente - onupgrade");
 			db.execSQL(Constantes.getSentenciaBorrarTablaComponente());
 			// crear
 			db.execSQL(Constantes.getSentenciaCrearTablaPlan());
 			Log.e("basehelper", "se crea tabla plan - onupgrade ");
-			db.execSQL(Constantes.getSentenciaCrearTablaTipoComponente());
-			Log.e("basehelper", "se crea tabla tipocomponente - onupgrade ");
 			db.execSQL(Constantes.getSentenciaCrearTablaComponente());
 			Log.e("basehelper", "se crea tabla componente - onupgrade ");
 		} catch (Exception ex) {
