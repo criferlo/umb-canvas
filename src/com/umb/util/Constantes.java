@@ -12,6 +12,11 @@ public class Constantes {
 	public static String ESTRUCTURA_COSTOS="ESTRUCTURA";
 	public static String FUENTES_INGRESO="INGRESO";
 	
+	public static String AMARILLO="AMARILLO";
+	public static String AZUL="AZUL";
+	public static String VERDE="VERDE";
+	public static String ROJO="ROJO";			
+	
 	private static String sentenciaCrearTablaPlan="create table plan ("
 			+ "id integer primary key,"
 			+ "nombre text,"
@@ -25,6 +30,7 @@ public class Constantes {
 			+ "descripcion text,"
 			+ "plan_id integer,"
 			+ "tipocomponente text,"
+			+ "color text,"
 			+ " foreign key(plan_id) references plan(id)"			
 			+ ");";
 	
@@ -35,7 +41,7 @@ public class Constantes {
 	
 	private static String nombreBD="canvasbd";
 	
-	private static int versionBd=10;
+	private static int versionBd=11;
 	
 
 	public static  String getSentenciaCrearTablaPlan() {

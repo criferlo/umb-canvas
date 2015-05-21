@@ -7,10 +7,16 @@ import android.view.MenuItem;
 
 public class CrearDetalleActivity extends Activity {
 
+	private long idcanvas;
+	private int tipoComponente;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crear_detalle);
+		Bundle x1 = getIntent().getExtras();
+		
 	}
 
 	@Override
