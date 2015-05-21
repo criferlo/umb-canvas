@@ -1,8 +1,8 @@
 package com.umb;
 
 
-import com.umb.datos.PlanHelper;
-import com.umb.datos.entidades.EntidadPlan;
+import com.umb.datos.CanvasHelper;
+import com.umb.datos.entidades.EntidadCanvas;
 import com.umb.util.Constantes;
 
 import android.app.Activity;
@@ -53,11 +53,11 @@ public class InicialCanvasActivity extends Activity {
 	}
 
 	private void grabarInfoCanvas() {
-		EntidadPlan x1 = new EntidadPlan();
+		EntidadCanvas x1 = new EntidadCanvas();
 		x1.setAutor(txtAutor.getText().toString());
 		x1.setDescripcion(txtAutor.getText().toString());
 		x1.setNombre(txtNombre.getText().toString());
-		PlanHelper x2 = new PlanHelper(getApplicationContext(), null, null, Constantes.getVersionBd());
+		CanvasHelper x2 = new CanvasHelper(getApplicationContext(), null, null, Constantes.getVersionBd());
 		try{
 			long id = x2.crear(x1);
 			if(id!=0){

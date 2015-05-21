@@ -20,8 +20,8 @@ public class BaseHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		try {
 			// crear
-			db.execSQL(Constantes.getSentenciaCrearTablaPlan());
-			Log.e("basehelper", "se crea tabla plan - oncreate ");
+			db.execSQL(Constantes.getSentenciaCrearTablaCanvas());
+			Log.e("basehelper", "se crea tabla canvas - oncreate ");
 			db.execSQL(Constantes.getSentenciaCrearTablaComponente());
 			Log.e("basehelper", "se crea tabla componente - oncreate ");
 		} catch (Exception ex) {
@@ -34,13 +34,13 @@ public class BaseHelper extends SQLiteOpenHelper {
 
 		try {
 			// borrar
-			Log.e("basehelper", "se borra tabla plan - onupgrade");
-			db.execSQL(Constantes.getSentenciaBorrarTablaPlan());
+			Log.e("basehelper", "se borra tabla canvas - onupgrade");
+			db.execSQL(Constantes.getSentenciaBorrarTablaCanvas());
 			Log.e("basehelper", "se borra tabla componente - onupgrade");
 			db.execSQL(Constantes.getSentenciaBorrarTablaComponente());
 			// crear
-			db.execSQL(Constantes.getSentenciaCrearTablaPlan());
-			Log.e("basehelper", "se crea tabla plan - onupgrade ");
+			db.execSQL(Constantes.getSentenciaCrearTablaCanvas());
+			Log.e("basehelper", "se crea tabla canvas - onupgrade ");
 			db.execSQL(Constantes.getSentenciaCrearTablaComponente());
 			Log.e("basehelper", "se crea tabla componente - onupgrade ");
 		} catch (Exception ex) {

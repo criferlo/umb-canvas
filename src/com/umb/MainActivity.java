@@ -3,8 +3,8 @@ package com.umb;
 import java.util.ArrayList;
 
 import com.umb.datos.BaseHelper;
-import com.umb.datos.PlanHelper;
-import com.umb.datos.entidades.EntidadPlan;
+import com.umb.datos.CanvasHelper;
+import com.umb.datos.entidades.EntidadCanvas;
 import com.umb.util.Constantes;
 
 import android.annotation.SuppressLint;

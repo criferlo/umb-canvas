@@ -1,0 +1,82 @@
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+     >
+
+    <EditText
+        android:id="@+id/txtNuevoComponente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtNombreComponente"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/canvas_amarillo"
+        android:ems="10"
+        android:hint="@string/hint_describir_post"
+        android:inputType="textMultiLine"
+        android:paddingLeft="10dp"
+        android:textColor="@color/fondo" />
+
+    <EditText
+        android:id="@+id/txtNombreComponente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="@string/hint_crear_comp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/txtNuevoComponente"
+        android:src="@drawable/cambiarcolor_amarillo" 
+        android:onClick="clicAmarillo"
+        />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/imageView1"
+        android:src="@drawable/cambiarcolor_azul" 
+        android:onClick="clicAzul"
+        />
+    
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_below="@+id/imageView2"
+        android:src="@drawable/cambiarcolor_verde" 
+        android:onClick="clicVerde"
+        />
+
+    
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/txtNuevoComponente"
+        android:layout_alignLeft="@+id/imageView3"
+        android:src="@drawable/cambiarcolor_rojo"
+        android:onClick="clicRojo"
+         />
+
+</RelativeLayout>
+</ScrollView>

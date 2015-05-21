@@ -1,7 +1,9 @@
 package com.umb;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.umb.adapter.ItemComponenteAdapter;
 import com.umb.datos.ComponenteHelper;
 import com.umb.util.Constantes;
 
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 /***
  * activity que muestra todas las opciones del canvas
@@ -21,15 +24,38 @@ import android.view.View;
 public class CanvasActivity extends Activity {
 
 	private long idcanvas;
-	
+	private String nombreCanvas;
+	TextView titulo1boton;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canvas);
-		//parametros
+		//aterrizar
+		titulo1boton = (TextView)findViewById(R.id.titulo1boton);
+		// parametros
 		Bundle x1 = getIntent().getExtras();
 		setTitle(x1.getString("nombrecanvas"));
 		idcanvas = x1.getLong("idcanvas");
+		nombreCanvas = x1.getString("nombrecanvas");
+		
+		contarComponentes();
+	}
+
+	private void contarComponentes() {
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		List<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.SOCIO);
+			if (x4 != null) {
+				titulo1boton.setText(getString(R.string.titulo1boton)+"("+x4.size()+")");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
@@ -51,39 +77,41 @@ public class CanvasActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	//Socios
-	public void cliccanvas_1(View v) {			
-		//consultar detalle del id del canvas
-		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(), null, null, Constantes.getVersionBd());
-		ArrayList<Object> x4=null;
+	// Socios
+	public void cliccanvas_1(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
 		try {
-			 x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.SOCIO);		 
-			 
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.SOCIO);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//no encuentra detalles
-		if(x4==null){
-			Intent x1 = new Intent(this,SinDetalleActivity.class);
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
 			String x2 = getString(R.string.titulo1boton);
-			x1.putExtra("idcanvas", idcanvas);	
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
 			x1.putExtra("categoria", x2);
 			x1.putExtra("tipocomponente", Constantes.SOCIO);
 			startActivity(x1);
-		}
-		else{
-			if(x4.size()>0){
-				Intent x5 = new Intent(this,DetalleActivity.class);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
 				String x2 = getString(R.string.titulo1boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
 				x5.putExtra("idcanvas", idcanvas);
 				x5.putExtra("categoria", x2);
 				x5.putExtra("tipocomponente", Constantes.SOCIO);
 				startActivity(x5);
 			}
 		}
-		
-		//fin consultar
-		
+
+		// fin consultar
+
 	}
 
 	public void cliccanvas_2(View v) {

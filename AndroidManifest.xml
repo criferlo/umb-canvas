@@ -34,15 +34,15 @@
             android:label="@string/title_activity_canvas" >
         </activity>
         <activity
-            android:name=".SinDetalleActivity"
+            android:name=".SinComponenteActivity"
             android:label="@string/title_activity_sin_detalle" >
         </activity>
         <activity
-            android:name=".DetalleActivity"
+            android:name=".ListaComponentesActivity"
             android:label="@string/title_activity_detalle" >
         </activity>
         <activity
-            android:name=".CrearDetalleActivity"
+            android:name=".NuevoComponenteActivity"
             android:label="@string/title_activity_crear_detalle" >
         </activity>
     </application>

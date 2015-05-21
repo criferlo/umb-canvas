@@ -1,6 +1,6 @@
 package com.umb.datos.entidades;
 
-public class EntidadPlan {
+public class EntidadCanvas {
 
 	private long id;
 	private String nombre;

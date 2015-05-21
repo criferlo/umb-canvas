@@ -5,8 +5,9 @@ public class EntidadComponente {
 	private long id;
 	private String nombre;
 	private String descripcion;
-	private long plan_id;
+	private long canvas_id;
 	private String tipocomponente;
+	private String color;
 	
 	public long getId() {
 		return id;
@@ -26,17 +27,24 @@ public class EntidadComponente {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public long getPlan_id() {
-		return plan_id;
-	}
-	public void setPlan_id(long plan_id) {
-		this.plan_id = plan_id;
-	}
+	
 	public String getTipocomponente() {
 		return tipocomponente;
 	}
 	public void setTipocomponente(String tipocomponente) {
 		this.tipocomponente = tipocomponente;
+	}
+	public long getCanvas_id() {
+		return canvas_id;
+	}
+	public void setCanvas_id(long canvas_id) {
+		this.canvas_id = canvas_id;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 	

@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.umb.datos.entidades.EntidadComponente;
-import com.umb.datos.entidades.EntidadPlan;
+import com.umb.datos.entidades.EntidadCanvas;
 import com.umb.datos.interfaces.ICrud;
 import com.umb.util.Constantes;
 
@@ -32,8 +32,9 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		ContentValues valores = new ContentValues();
 		valores.put("nombre", plan.getNombre());
 		valores.put("descripcion", plan.getDescripcion());
-		valores.put("plan_id", plan.getPlan_id());
-		valores.put("tipocomponente_id", plan.getTipocomponente());
+		valores.put("canvas_id", plan.getCanvas_id());
+		valores.put("tipocomponente", plan.getTipocomponente());
+		valores.put("color", plan.getColor());
 		long id = data.insert("componente", null, valores);
 		data.close();
 		return id;
@@ -49,7 +50,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		ContentValues valores = new ContentValues();
 		valores.put("nombre", plan.getNombre());
 		valores.put("descripcion", plan.getDescripcion());
-		valores.put("plan_id", plan.getPlan_id());
+		valores.put("canvas_id", plan.getCanvas_id());
 		valores.put("tipocomponente", plan.getTipocomponente());
 		String[] args = { plan.getId() + "" };
 		// retorna el numero de registros afectados
@@ -69,7 +70,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		plan = (EntidadComponente) obj;
 		SQLiteDatabase data = this.getWritableDatabase();
 		String[] args = { plan.getId() + "" };
-		long id = data.delete("plan", "id=?", args);
+		long id = data.delete("componente", "id=?", args);
 		data.close();
 		if (id > 0) {
 			return true;
@@ -82,8 +83,8 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 	public Object consultarUno(long id) throws Exception {
 		// probado
 		SQLiteDatabase data = this.getReadableDatabase();
-		String[] columns = { "id", "nombre", "descripcion", "plan_id",
-				"tipocomponente" };
+		String[] columns = { "id", "nombre", "descripcion", "canvas_id",
+				"tipocomponente","color" };
 		String[] whereArgs = { String.valueOf(id) };
 		Cursor cursor = data.query("componente", columns, "id=?", whereArgs,
 				null, null, null);
@@ -96,8 +97,9 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 				entidad.setId(cursor.getLong(0));
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
-				entidad.setPlan_id(cursor.getLong(3));
+				entidad.setCanvas_id(cursor.getLong(3));
 				entidad.setTipocomponente(cursor.getString(4));
+				entidad.setColor(cursor.getString(5));
 			} while (cursor.moveToNext());
 		} else {
 			return null;
@@ -109,22 +111,24 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 	public ArrayList<Object> consultarTodos() throws Exception {
 		// probado
 		SQLiteDatabase data = this.getReadableDatabase();
-		String[] columns = { "id", "nombre", "descripcion", "plan_id","tipocomponente" };
+		String[] columns = { "id", "nombre", "descripcion", "canvas_id","tipocomponente" };
 		Cursor cursor = data.query("componente", columns, null, null, null, null,
 				null);
 
-		EntidadPlan entidad = null;
+		EntidadComponente entidad = null;
 		ArrayList<Object> lista = null;		
 
 		if (cursor.moveToFirst()) {
 
 			lista = new ArrayList<Object>();
 			do {
-				entidad = new EntidadPlan();
+				entidad = new EntidadComponente();
 				entidad.setId(cursor.getLong(0));
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
-				entidad.setAutor(cursor.getString(3));
+				entidad.setCanvas_id(cursor.getLong(3));
+				entidad.setTipocomponente(cursor.getString(4));
+				entidad.setColor(cursor.getString(5));
 				lista.add(entidad);
 			} while (cursor.moveToNext());
 		} else {
@@ -137,23 +141,26 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 	public ArrayList<Object> consultarTodosPorPlanyTipo(long idplan,String tipo) throws Exception {
 		// probado
 		SQLiteDatabase data = this.getReadableDatabase();
-		String[] columns = { "id", "nombre", "descripcion", "plan_id","tipocomponente" };
+		String[] columns = { "id", "nombre", "descripcion", "canvas_id","tipocomponente","color"};
 		String[] whereArgs =  {idplan+"",tipo};
-		Cursor cursor = data.query("componente", columns, "plan_id=? and tipocomponente=?", whereArgs, null, null,
+		Cursor cursor = data.query("componente", columns, "canvas_id=? and tipocomponente=?", whereArgs, null, null,
 				null);
-
-		EntidadPlan entidad = null;
+		
+		EntidadComponente entidad = null;
 		ArrayList<Object> lista = null;		
 
 		if (cursor.moveToFirst()) {
 
 			lista = new ArrayList<Object>();
 			do {
-				entidad = new EntidadPlan();
+				entidad = new EntidadComponente();
 				entidad.setId(cursor.getLong(0));
 				entidad.setNombre(cursor.getString(1));
 				entidad.setDescripcion(cursor.getString(2));
-				entidad.setAutor(cursor.getString(3));
+				entidad.setCanvas_id(cursor.getLong(3));
+				entidad.setTipocomponente(cursor.getString(4));
+				entidad.setColor(cursor.getString(5));
+				
 				lista.add(entidad);
 			} while (cursor.moveToNext());
 		} else {

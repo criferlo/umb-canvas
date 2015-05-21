@@ -17,7 +17,7 @@ public class Constantes {
 	public static String VERDE="VERDE";
 	public static String ROJO="ROJO";			
 	
-	private static String sentenciaCrearTablaPlan="create table plan ("
+	private static String sentenciaCrearTablaCanvas="create table canvas ("
 			+ "id integer primary key,"
 			+ "nombre text,"
 			+ "descripcion text,"
@@ -28,28 +28,27 @@ public class Constantes {
 			+ "id integer primary key,"
 			+ "nombre text,"
 			+ "descripcion text,"
-			+ "plan_id integer,"
+			+ "canvas_id integer,"
 			+ "tipocomponente text,"
 			+ "color text,"
-			+ " foreign key(plan_id) references plan(id)"			
+			+ " foreign key(canvas_id) references canvas(id)"			
 			+ ");";
 	
 	
-	private static String sentenciaBorrarTablaPlan="drop table if exists plan;";
+	private static String sentenciaBorrarTablaCanvas="drop table if exists canvas;";
 	
 	private static String sentenciaBorrarTablaComponente="drop table if exists componente;";
 	
 	private static String nombreBD="canvasbd";
 	
-	private static int versionBd=11;
+	private static int versionBd=13;
 	
-
-	public static  String getSentenciaCrearTablaPlan() {
-		return sentenciaCrearTablaPlan;
+	public static String getSentenciaCrearTablaCanvas() {
+		return sentenciaCrearTablaCanvas;
 	}
 
-	public static String getSentenciaBorrarTablaPlan() {
-		return sentenciaBorrarTablaPlan;
+	public static String getSentenciaBorrarTablaCanvas() {
+		return sentenciaBorrarTablaCanvas;
 	}
 
 	public static String getNombreBD() {
