@@ -95,6 +95,8 @@ public class CanvasHelper extends SQLiteOpenHelper implements ICrud {
 		else{
 			return null;
 		}
+		cursor.close();
+		data.close();
 		return entidad;
 	}
 
@@ -123,6 +125,8 @@ public class CanvasHelper extends SQLiteOpenHelper implements ICrud {
 		else{
 			return null;
 		}
+		cursor.close();
+		data.close();
 		return lista;
 	}
 
@@ -151,6 +155,8 @@ public class CanvasHelper extends SQLiteOpenHelper implements ICrud {
 		else{
 			return null;
 		}
+		cursor.close();
+		data.close();
 		return lista;
 	}
 	

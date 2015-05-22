@@ -104,6 +104,8 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		} else {
 			return null;
 		}
+		cursor.close();
+		data.close();
 		return entidad;
 	}
 
@@ -134,6 +136,8 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		} else {
 			return null;
 		}
+		cursor.close();
+		data.close();
 		return lista;
 	}
 
@@ -166,6 +170,8 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		} else {
 			return null;
 		}
+		cursor.close();
+		data.close();
 		return lista;
 	}
 	

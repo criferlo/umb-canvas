@@ -5,14 +5,15 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="13"
         android:targetSdkVersion="21" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icono_canvas"
         android:label=""
-        android:theme="@style/temaPersonalizado" >
+        android:theme="@style/temaPersonalizado"
+         >
         <activity
             android:name=".InicialCanvasActivity"
             android:label="@string/title_activity_inicial_canvas" >

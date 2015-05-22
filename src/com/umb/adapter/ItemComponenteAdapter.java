@@ -54,21 +54,45 @@ public class ItemComponenteAdapter extends BaseAdapter {
 		EntidadComponente item = (EntidadComponente) this.items.get(position);
 		texto.setText(item.getDescripcion());
 
+		int sdk = android.os.Build.VERSION.SDK_INT;
+		
 		if (item.getColor().equals(Constantes.AMARILLO)) {
-			texto.setBackground(context.getResources().getDrawable(
-					R.drawable.canvas_amarillo));
+			if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+				texto.setBackgroundDrawable(context.getResources().getDrawable(
+						R.drawable.canvas_amarillo));
+			} else {
+				texto.setBackground(context.getResources().getDrawable(
+						R.drawable.canvas_amarillo));
+			}
 		}
 		if (item.getColor().equals(Constantes.AZUL)) {
-			texto.setBackground(context.getResources().getDrawable(
-					R.drawable.canvas_azul));
+			if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+				texto.setBackgroundDrawable(context.getResources().getDrawable(
+						R.drawable.canvas_azul));
+			} else {
+				texto.setBackground(context.getResources().getDrawable(
+						R.drawable.canvas_azul));
+			}
 		}
 		if (item.getColor().equals(Constantes.VERDE)) {
-			texto.setBackground(context.getResources().getDrawable(
-					R.drawable.canvas_verde));
+			if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+				texto.setBackgroundDrawable(context.getResources().getDrawable(
+						R.drawable.canvas_verde));
+			} else {
+				texto.setBackground(context.getResources().getDrawable(
+						R.drawable.canvas_verde));
+			}
 		}
 		if (item.getColor().equals(Constantes.ROJO)) {
-			texto.setBackground(context.getResources().getDrawable(
-					R.drawable.canvas_rojo));
+			
+			
+			if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+				texto.setBackgroundDrawable(context.getResources().getDrawable(
+						R.drawable.canvas_rojo));
+			} else {
+				texto.setBackground(context.getResources().getDrawable(
+						R.drawable.canvas_rojo));
+			}
 		}
 
 		return rowView;

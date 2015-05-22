@@ -41,7 +41,7 @@ public class Constantes {
 	
 	private static String nombreBD="canvasbd";
 	
-	private static int versionBd=13;
+	private static int versionBd=14;
 	
 	public static String getSentenciaCrearTablaCanvas() {
 		return sentenciaCrearTablaCanvas;

@@ -7,6 +7,7 @@ import com.umb.adapter.ItemComponenteAdapter;
 import com.umb.datos.ComponenteHelper;
 import com.umb.util.Constantes;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,6 +39,10 @@ public class CanvasActivity extends Activity {
 		setTitle(x1.getString("nombrecanvas"));
 		idcanvas = x1.getLong("idcanvas");
 		nombreCanvas = x1.getString("nombrecanvas");
+		
+		//boton atras
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		
 		contarComponentes();
 	}
@@ -71,6 +76,12 @@ public class CanvasActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+		
+		if(id==android.R.id.home){
+			this.finish();
+			return true;
+		}
+		
 		if (id == R.id.action_settings) {
 			return true;
 		}

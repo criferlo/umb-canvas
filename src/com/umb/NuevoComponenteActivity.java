@@ -24,6 +24,8 @@ public class NuevoComponenteActivity extends Activity {
 	EditText txtNombreComponente;
 	
 	private String colorSeleccionado=Constantes.AMARILLO;
+	
+	int sdk = android.os.Build.VERSION.SDK_INT;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -90,22 +92,47 @@ public class NuevoComponenteActivity extends Activity {
 	}
 
 	public void clicAmarillo(View view) {
-		txtNuevoComponente.setBackground(getResources().getDrawable(R.drawable.canvas_amarillo));
+		if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+			txtNuevoComponente.setBackgroundDrawable(getResources().getDrawable(
+					R.drawable.canvas_amarillo));
+		} else {
+			txtNuevoComponente.setBackground(getResources().getDrawable(
+					R.drawable.canvas_amarillo));
+		}
+		
 		colorSeleccionado = Constantes.AMARILLO;
 	}
 
 	public void clicAzul(View view) {
-		txtNuevoComponente.setBackground(getResources().getDrawable(R.drawable.canvas_azul));
+		if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+			txtNuevoComponente.setBackgroundDrawable(getResources().getDrawable(
+					R.drawable.canvas_azul));
+		} else {
+			txtNuevoComponente.setBackground(getResources().getDrawable(
+					R.drawable.canvas_azul));
+		}
 		colorSeleccionado = Constantes.AZUL;
 	}
 
 	public void clicVerde(View view) {
-		txtNuevoComponente.setBackground(getResources().getDrawable(R.drawable.canvas_verde));
+		if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+			txtNuevoComponente.setBackgroundDrawable(getResources().getDrawable(
+					R.drawable.canvas_verde));
+		} else {
+			txtNuevoComponente.setBackground(getResources().getDrawable(
+					R.drawable.canvas_verde));
+		}
 		colorSeleccionado = Constantes.VERDE;
 	}
 
 	public void clicRojo(View view) {
-		txtNuevoComponente.setBackground(getResources().getDrawable(R.drawable.canvas_rojo));
+		if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+			txtNuevoComponente.setBackgroundDrawable(getResources().getDrawable(
+					R.drawable.canvas_rojo));
+		} else {
+			txtNuevoComponente.setBackground(getResources().getDrawable(
+					R.drawable.canvas_rojo));
+		}
 		colorSeleccionado = Constantes.ROJO;
 	}
 }
