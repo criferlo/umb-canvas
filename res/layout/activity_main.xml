@@ -14,6 +14,13 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/botonicono"
-        android:onClick="clic" />
+        android:onClick="clicCrearCanvas" />
+    
+    <Button
+        android:id="@+id/btnListaCanvas"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/botonicono"
+        android:onClick="clicListaCanvas" />
 
 </LinearLayout>

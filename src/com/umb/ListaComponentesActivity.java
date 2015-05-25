@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.umb.adapter.ItemComponenteAdapter;
 import com.umb.datos.ComponenteHelper;
+import com.umb.datos.entidades.EntidadComponente;
 import com.umb.util.Constantes;
 
 import android.app.Activity;
@@ -12,7 +13,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class ListaComponentesActivity extends Activity {
 
@@ -39,6 +43,23 @@ public class ListaComponentesActivity extends Activity {
 		// lista
 		lista = (ListView) findViewById(R.id.lstComponentes);
 		llenarLista();
+		
+		//evento
+		lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				EntidadComponente item = (EntidadComponente) lista.getAdapter().getItem(position);
+				//enviar componente a editar
+				Intent x1 = new Intent(getApplicationContext(),EditarComponenteActivity.class);
+				x1.putExtra("idcomponente", item.getId());
+				x1.putExtra("tipocomponente", tipoComponente);
+				x1.putExtra("nombrecanvas", nombreCanvas);
+				startActivity(x1);
+			}
+			
+		});
 	}
 
 	private void llenarLista() {
@@ -64,6 +85,9 @@ public class ListaComponentesActivity extends Activity {
 		return true;
 	}
 
+	
+	
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will

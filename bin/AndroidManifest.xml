@@ -12,8 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/icono_canvas"
         android:label=""
-        android:theme="@style/temaPersonalizado"
-         >
+        android:theme="@style/temaPersonalizado" >
         <activity
             android:name=".InicialCanvasActivity"
             android:label="@string/title_activity_inicial_canvas" >
@@ -45,6 +44,18 @@
         <activity
             android:name=".NuevoComponenteActivity"
             android:label="@string/title_activity_crear_detalle" >
+        </activity>
+        <activity
+            android:name=".EditarComponenteActivity"
+            android:label="@string/title_activity_editar_componente" >
+        </activity>
+        <activity
+            android:name=".ListaCanvasActivity"
+            android:label="@string/title_activity_lista_canvas" >
+        </activity>
+        <activity
+            android:name=".EditarCanvasActivity"
+            android:label="@string/title_activity_editar_canvas" >
         </activity>
     </application>
 

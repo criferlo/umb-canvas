@@ -52,6 +52,7 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		valores.put("descripcion", plan.getDescripcion());
 		valores.put("canvas_id", plan.getCanvas_id());
 		valores.put("tipocomponente", plan.getTipocomponente());
+		valores.put("color", plan.getColor());
 		String[] args = { plan.getId() + "" };
 		// retorna el numero de registros afectados
 		long id = data.update("componente", valores, "id=?", args);
@@ -71,6 +72,19 @@ public class ComponenteHelper extends SQLiteOpenHelper implements ICrud {
 		SQLiteDatabase data = this.getWritableDatabase();
 		String[] args = { plan.getId() + "" };
 		long id = data.delete("componente", "id=?", args);
+		data.close();
+		if (id > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
+	
+	public boolean eliminarPorIdCanvas(long idcanvas) throws Exception {
+		// probado
+		SQLiteDatabase data = this.getWritableDatabase();
+		String[] args = { idcanvas + "" };
+		long id = data.delete("componente", "canvas_id=?", args);
 		data.close();
 		if (id > 0) {
 			return true;

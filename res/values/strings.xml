@@ -46,5 +46,8 @@
     <string name="title_activity_crear_detalle">CrearDetalleActivity</string>
     <string name="hint_crear_comp">Escriba nombre...</string>
     <string name="hint_describir_post">Describa el post</string>
+    <string name="title_activity_editar_componente">EditarComponenteActivity</string>
+    <string name="title_activity_lista_canvas">ListaCanvasActivity</string>
+    <string name="title_activity_editar_canvas">EditarCanvasActivity</string>
 
 </resources>

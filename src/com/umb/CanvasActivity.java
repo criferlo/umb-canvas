@@ -77,9 +77,11 @@ public class CanvasActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		
-		if(id==android.R.id.home){
+		if(id==android.R.id.home){			
 			this.finish();
-			return true;
+			Intent x1 = new Intent(this,MainActivity.class);
+			startActivity(x1);
+			return false;
 		}
 		
 		if (id == R.id.action_settings) {

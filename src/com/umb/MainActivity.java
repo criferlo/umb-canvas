@@ -45,65 +45,16 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	public void clic(View view) {
+	public void clicCrearCanvas(View view) {
 		Intent intent = new Intent(this, InicialCanvasActivity.class);
 		startActivity(intent);
 		overridePendingTransition(R.anim.zoom_entra, R.anim.zoom_sale);
-		/*
-		PlanHelper plan = new PlanHelper(this, null, null,
-				Constantes.getVersionBd());
-		EntidadPlan ep = new EntidadPlan();
-		ep.setCreador("CristhianLombana");
-		ep.setDescripcion("DescripcionCanvas");
-		ep.setNombre("CanvasFutbol");
-		long id = -1;
-		try {
-			id = plan.crear(ep);
-			Log.e("id", id + "");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		ep = new EntidadPlan();
-		try {
-			ep = (EntidadPlan) plan.consultarUno(id);
-			Log.e("dato", ep.getDescripcion() + ep.getCreador());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// modificar
-		ep.setCreador("Otro creador");
-		try {
-			if (plan.modificar(ep)) {
-				Log.e("modificado", "si");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// consultartodos
-		try {
-			ArrayList<Object> lista = plan.consultarTodos();
-			if (lista != null) {
-				Log.e("consultados", lista.size() + "");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// eliminar
-		try {
-			if (plan.eliminar(ep)) {
-				Log.e("eliminado", "si");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-
+	}
+	
+	public void clicListaCanvas(View view) {
+		Intent intent = new Intent(this, ListaCanvasActivity.class);
+		startActivity(intent);
+		overridePendingTransition(R.anim.zoom_entra, R.anim.zoom_sale);
 	}
 
 	@Override

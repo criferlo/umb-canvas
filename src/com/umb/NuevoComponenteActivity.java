@@ -87,7 +87,8 @@ public class NuevoComponenteActivity extends Activity {
 						R.string.grabado_noexito, Toast.LENGTH_LONG).show();
 			}
 		} catch (Exception ex) {
-
+			Toast.makeText(getApplicationContext(),
+					ex.getMessage(), Toast.LENGTH_LONG).show();
 		}
 	}
 
