@@ -16,7 +16,8 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         android:showAsAction="ifRoom"
-        android:icon="@drawable/ic_action_remove"
+        android:icon="@drawable/ic_action_discard2"
         />
+     
 
 </menu>

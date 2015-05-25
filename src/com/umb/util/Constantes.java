@@ -17,6 +17,9 @@ public class Constantes {
 	public static String VERDE="VERDE";
 	public static String ROJO="ROJO";			
 	
+	public static String NOMBRE_PDF="canvas.pdf";
+	public static String NOMBRe_DIR="canvasumb";
+	
 	private static String sentenciaCrearTablaCanvas="create table canvas ("
 			+ "id integer primary key,"
 			+ "nombre text,"
