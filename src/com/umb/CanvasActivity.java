@@ -6,6 +6,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,10 @@ import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfImportedPage;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfReader;
 import com.lowagie.text.pdf.PdfWriter;
 import com.umb.adapter.ItemComponenteAdapter;
 import com.umb.datos.ComponenteHelper;
@@ -24,8 +30,10 @@ import com.umb.util.Constantes;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -114,35 +122,80 @@ public class CanvasActivity extends Activity {
 	private void exportarCanvas() {
 
 		try {
-			Document documento = new Document(PageSize.LETTER.rotate());
+			//expotar plantilla
+			AssetManager mngr = getAssets();
+			InputStream is = mngr.open("bcanvas.pdf");			
+			OutputStream out = new FileOutputStream(crearFichero("template.pdf"));
+			
+			int read = 0;
+			byte[] bytes = new byte[1024];
+	 
+			while ((read = is.read(bytes)) != -1) {
+				out.write(bytes, 0, read);
+			}	
+			
+			out.close();
+			is.close();
+			Log.e("mensaje", "template creado");
+			//explotar plantilla
+			
+			PdfReader reader = new PdfReader(getRuta()+"/template.pdf");
+			
+			
+			Document documento = new Document(PageSize.LEGAL.rotate(),0,0,0,0);
 			File f = crearFichero(Constantes.NOMBRE_PDF);
 			// Creamos el flujo de datos de salida para el fichero donde
 			// guardaremos el pdf.
 			FileOutputStream ficheroPdf = new FileOutputStream(
 					f.getAbsolutePath());
 			// Asociamos el flujo que acabamos de crear al documento.
-			PdfWriter.getInstance(documento, ficheroPdf);
+			PdfWriter  writer = PdfWriter.getInstance(documento, ficheroPdf);
 			// Abrimos el documento.
 			documento.open();		
 			
-
-			// Añadimos un título con la fuente por defecto.
-			//documento.add(new Paragraph("Título 1"));
+			PdfContentByte canvas = writer.getDirectContent();
+			PdfImportedPage page = writer.getImportedPage(reader,1);
+			//page.setHorizontalScaling(20);
+			
+			//documento.newPage();
+			canvas.addTemplate(page, 0.2f, 0, 0, 0.2f, 0, 0);
+			
+			//http://itextpdf.com/examples/iia.php?id=113
+			
 
 			// Añadimos un título con una fuente personalizada.
-			/*Font font = FontFactory.getFont(FontFactory.HELVETICA, 28,
+			Font font = FontFactory.getFont(FontFactory.HELVETICA, 28,
 					Font.BOLD, Color.RED);
-			documento.add(new Paragraph("Título personalizado", font));*/
+			documento.add(new Paragraph("Título personalizado", font));
 
+			PdfPCell cell = new PdfPCell();
+		
+			
 			// Insertamos una imagen que se encuentra en los recursos de la aplicación.
-			Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.canvasvacio);
+			/*Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.canvasvacio2);
+			
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
+			
 			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
 			Image imagen = Image.getInstance(stream.toByteArray());
 			
+			imagen.setAbsolutePosition(0,-3);
+			
 			documento.add(imagen);
 			
+			// Añadimos un título con la fuente por defecto.
+			documento.add(new Paragraph("Título 1"));*/
+			
+			
 			documento.close();
+			reader.close();
+			
+			Uri path = Uri.fromFile(f);
+            Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
+            pdfIntent.setDataAndType(path, "application/pdf");
+            pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(pdfIntent);
+	        
 		} catch (Exception ex) {
 			Log.e("error", ex.getMessage());
 		}

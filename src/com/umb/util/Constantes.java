@@ -20,6 +20,8 @@ public class Constantes {
 	public static String NOMBRE_PDF="canvas.pdf";
 	public static String NOMBRe_DIR="canvasumb";
 	
+	public static final int ABRIRFICHERO_RESULT_CODE = 1;
+	
 	private static String sentenciaCrearTablaCanvas="create table canvas ("
 			+ "id integer primary key,"
 			+ "nombre text,"

@@ -46,7 +46,7 @@ public final class R {
         public static final int canvas_nuevo=0x7f020007;
         public static final int canvas_rojo=0x7f020008;
         public static final int canvas_verde=0x7f020009;
-        public static final int canvasvacio=0x7f02000a;
+        public static final int canvasvacio2=0x7f02000a;
         public static final int ic_action_discard2=0x7f02000b;
         public static final int ic_action_download=0x7f02000c;
         public static final int ic_action_group=0x7f02000d;
