@@ -18,6 +18,7 @@ import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfImportedPage;
 import com.lowagie.text.pdf.PdfPCell;
@@ -122,9 +123,14 @@ public class CanvasActivity extends Activity {
 	private void exportarCanvas() {
 
 		try {
+			
+			//consultar canvas
+			
+			//consultar canvas
+			
 			//expotar plantilla
 			AssetManager mngr = getAssets();
-			InputStream is = mngr.open("bcanvas.pdf");			
+			InputStream is = mngr.open("canvasfinal.pdf");			
 			OutputStream out = new FileOutputStream(crearFichero("template.pdf"));
 			
 			int read = 0;
@@ -142,7 +148,7 @@ public class CanvasActivity extends Activity {
 			PdfReader reader = new PdfReader(getRuta()+"/template.pdf");
 			
 			
-			Document documento = new Document(PageSize.LEGAL.rotate(),0,0,0,0);
+			Document documento = new Document(PageSize.LETTER.rotate(),0,0,0,0);
 			File f = crearFichero(Constantes.NOMBRE_PDF);
 			// Creamos el flujo de datos de salida para el fichero donde
 			// guardaremos el pdf.
@@ -158,17 +164,28 @@ public class CanvasActivity extends Activity {
 			//page.setHorizontalScaling(20);
 			
 			//documento.newPage();
-			canvas.addTemplate(page, 0.2f, 0, 0, 0.2f, 0, 0);
+			//para el canvas de la pagina
+			//canvas.addTemplate(page, 0.2f, 0, 0, 0.2f, 80, 20);
+			canvas.addTemplate(page, 1.2f, 0, 0, 1.2f, -10, 20);
+			/*Font font = FontFactory.getFont(FontFactory.HELVETICA, 28,
+					Font.BOLD, Color.RED);*/
+						
+			BaseFont fuente = BaseFont.createFont();
+			
+			canvas.setFontAndSize(fuente, 8);
+			
+			
+			//canvas.showText("ssss");
+			canvas.showTextAligned(PdfContentByte.ALIGN_CENTER, "ESTA ES UNA PRUEBA DE TEXTO EXTREMADAMENTE LARGO", 140, 440, 0);
 			
 			//http://itextpdf.com/examples/iia.php?id=113
 			
 
 			// Añadimos un título con una fuente personalizada.
-			Font font = FontFactory.getFont(FontFactory.HELVETICA, 28,
-					Font.BOLD, Color.RED);
-			documento.add(new Paragraph("Título personalizado", font));
+			
+			//documento.add(new Paragraph("Título personalizado", font));
 
-			PdfPCell cell = new PdfPCell();
+			//PdfPCell cell = new PdfPCell();
 		
 			
 			// Insertamos una imagen que se encuentra en los recursos de la aplicación.
