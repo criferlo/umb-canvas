@@ -55,6 +55,7 @@ public class CanvasActivity extends Activity {
 
 	private long idcanvas;
 	private String nombreCanvas;
+	private String autorCanvas;
 	TextView titulo1boton;
 	TextView titulo2boton;
 	TextView titulo3boton;
@@ -90,6 +91,7 @@ public class CanvasActivity extends Activity {
 		setTitle(x1.getString("nombrecanvas"));
 		idcanvas = x1.getLong("idcanvas");
 		nombreCanvas = x1.getString("nombrecanvas");
+		autorCanvas = x1.getString("autorcanvas");
 
 		// boton atras
 		ActionBar actionBar = getActionBar();
@@ -107,55 +109,60 @@ public class CanvasActivity extends Activity {
 				titulo1boton.setText(getString(R.string.titulo1boton) + "("
 						+ x4.size() + ")");
 			}
-			
+
 			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.ACTIVIDAD);
 			if (x4 != null) {
 				titulo2boton.setText(getString(R.string.titulo2boton) + "("
 						+ x4.size() + ")");
 			}
-			
+
 			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.PROPUESTA);
 			if (x4 != null) {
 				titulo3boton.setText(getString(R.string.titulo3boton) + "("
 						+ x4.size() + ")");
 			}
-			
-			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.RELACION_CLIENTE);
+
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.RELACION_CLIENTE);
 			if (x4 != null) {
 				titulo4boton.setText(getString(R.string.titulo4boton) + "("
 						+ x4.size() + ")");
 			}
-			
-			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.SEGMENTO_CLIENTE);
+
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.SEGMENTO_CLIENTE);
 			if (x4 != null) {
 				titulo5boton.setText(getString(R.string.titulo5boton) + "("
 						+ x4.size() + ")");
 			}
-			
-			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.RECURSOS_CLAVE);
+
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.RECURSOS_CLAVE);
 			if (x4 != null) {
 				titulo6boton.setText(getString(R.string.titulo6boton) + "("
 						+ x4.size() + ")");
 			}
-			
-			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.CANALES_DISTRIBUCION);
+
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.CANALES_DISTRIBUCION);
 			if (x4 != null) {
 				titulo7boton.setText(getString(R.string.titulo7boton) + "("
 						+ x4.size() + ")");
 			}
-			
-			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.ESTRUCTURA_COSTOS);
+
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.ESTRUCTURA_COSTOS);
 			if (x4 != null) {
 				titulo8boton.setText(getString(R.string.titulo8boton) + "("
 						+ x4.size() + ")");
 			}
-			
-			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.FUENTES_INGRESO);
+
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.FUENTES_INGRESO);
 			if (x4 != null) {
 				titulo9boton.setText(getString(R.string.titulo9boton) + "("
 						+ x4.size() + ")");
 			}
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -208,17 +215,26 @@ public class CanvasActivity extends Activity {
 			List<Object> listaEstructura = null;
 			List<Object> listaFuente = null;
 			try {
-				
-				listaSocio = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.SOCIO);
-				listaActividades = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.ACTIVIDAD);
-				listaPropuesta = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.PROPUESTA);
-				listaRelacionCliente = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.RELACION_CLIENTE);
-				listaSegmentoCliente = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.SEGMENTO_CLIENTE);
-				listaRecursoClave = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.RECURSOS_CLAVE);
-				listaCanalDistribucion = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.CANALES_DISTRIBUCION);
-				listaEstructura = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.ESTRUCTURA_COSTOS);
-				listaFuente = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.FUENTES_INGRESO);
-				
+
+				listaSocio = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.SOCIO);
+				listaActividades = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.ACTIVIDAD);
+				listaPropuesta = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.PROPUESTA);
+				listaRelacionCliente = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.RELACION_CLIENTE);
+				listaSegmentoCliente = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.SEGMENTO_CLIENTE);
+				listaRecursoClave = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.RECURSOS_CLAVE);
+				listaCanalDistribucion = x3.consultarTodosPorPlanyTipo(
+						idcanvas, Constantes.CANALES_DISTRIBUCION);
+				listaEstructura = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.ESTRUCTURA_COSTOS);
+				listaFuente = x3.consultarTodosPorPlanyTipo(idcanvas,
+						Constantes.FUENTES_INGRESO);
+
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -229,7 +245,8 @@ public class CanvasActivity extends Activity {
 			// expotar plantilla
 			AssetManager mngr = getAssets();
 			InputStream is = mngr.open("canvasfinal.pdf");
-			OutputStream out = new FileOutputStream(crearFichero("template.pdf"));
+			OutputStream out = new FileOutputStream(
+					crearFichero("template.pdf"));
 
 			int read = 0;
 			byte[] bytes = new byte[1024];
@@ -244,9 +261,11 @@ public class CanvasActivity extends Activity {
 
 			PdfReader reader = new PdfReader(getRuta() + "/template.pdf");
 
-			Document documento = new Document(PageSize.LETTER.rotate(), 0, 0, 0, 0);
+			Document documento = new Document(PageSize.LETTER.rotate(), 0, 0,
+					0, 0);
 			File f = crearFichero(Constantes.NOMBRE_PDF);
-			FileOutputStream ficheroPdf = new FileOutputStream(f.getAbsolutePath());
+			FileOutputStream ficheroPdf = new FileOutputStream(
+					f.getAbsolutePath());
 			PdfWriter writer = PdfWriter.getInstance(documento, ficheroPdf);
 			documento.open();
 
@@ -254,89 +273,714 @@ public class CanvasActivity extends Activity {
 			PdfImportedPage page = writer.getImportedPage(reader, 1);
 
 			canvas.addTemplate(page, 1.2f, 0, 0, 1.2f, -10, 20);
-			/*Font fontAmarillo = FontFactory.getFont(FontFactory.HELVETICA, 8,
-					Font.NORMAL, Color.YELLOW);*/
+			/*
+			 * Font fontAmarillo = FontFactory.getFont(FontFactory.HELVETICA, 8,
+			 * Font.NORMAL, Color.YELLOW);
+			 */
 
 			// iteramos la lista para mostrar por categoria
-			int posysocios = 430;
-			int posyactividades = 430;
-			int posypropuesta = 430;
-			int posyrelacioncliente = 430;
-			int posysegmentocliente = 430;
-			int posyrecursosclave = 430;
-			int posycanales = 430;
-			int posyestructura = 430;
-			int posyfuentesingreso = 430;
+			int posx = 20;
+			int posy = 430;
 
 			int cantidad = 4;
-			
-			//listasocios
-			for (Object b : listaSocio) {
 
-				EntidadComponente compo = (EntidadComponente) b;
-				BaseFont fuente = BaseFont.createFont();
-				canvas.setFontAndSize(fuente, 10);
-				canvas.beginText();
-				
-				if(compo.getColor().equals(Constantes.AMARILLO))
-					canvas.setRGBColorFill(255,217, 0);//amarillo
-				if(compo.getColor().equals(Constantes.AZUL))
-					canvas.setRGBColorFill(0, 20, 137);// azul
-				if(compo.getColor().equals(Constantes.VERDE))
-					canvas.setRGBColorFill(0,171, 132);//verde
-				if(compo.getColor().equals(Constantes.ROJO))
-					canvas.setRGBColorFill(249,56, 34);//rojo
-				
-				String va = compo.getDescripcion();
+			if (listaSocio != null) {
+				// listasocios
+				for (Object b : listaSocio) {
 
-				String[] cad = va.split(" ");
-				StringBuilder tex = new StringBuilder();
-				int rep = Math.round(cad.length / cantidad);
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
 
-				if (cad.length <= cantidad) {
-					for (int j = 0; j < cad.length; j++) {
-						tex.append(cad[j]);
-						tex.append(" ");
-					}
-					canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,tex.toString(), 15, posysocios, 0);
-					Log.e("let", tex.toString());
-				} else {
-					int k = 0;
-					int lon = cad.length - k;
-					for (int i = 0; i < rep + 1; i++) {
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
 
-						if (lon <= cantidad) {
-							for (int j = 0; j < lon; j++) {
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
 								tex.append(cad[k]);
 								tex.append(" ");
 								k++;
 							}
-							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,tex.toString(), 15, posysocios, 0);
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
 							Log.e("let", tex.toString());
-							break;
+							posy -= 15;
+							tex = new StringBuilder();
+
 						}
-
-						for (int j = 0; j < cantidad; j++) {
-							tex.append(cad[k]);
-							tex.append(" ");
-							k++;
-						}
-
-						lon = cad.length - k;// lo que falta
-
-						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,tex.toString(), 15, posysocios, 0);
-						Log.e("let", tex.toString());
-						posysocios -= 15;
-						tex = new StringBuilder();
-
 					}
+					canvas.endText();
+					posy -= 20;
 				}
-
-				canvas.endText();
-				posysocios -= 20;
 			}
-			//listasocios
+			// canvas.endText();
+			// listasocios
+
+			// lista actividades
+			// canvas.beginText();
+			posx = 170;
+			posy = 430;
+
+			if (listaActividades != null) {
+
+				for (Object b : listaActividades) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista actividades
+
+			// lista propuesta de valor
+			// canvas.beginText();
+			posx = 320;
+			posy = 430;
+
+			if (listaPropuesta != null) {
+				for (Object b : listaPropuesta) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista propuesta de valor
+
+			// lista relacion clientes
+			// canvas.beginText();
+			posx = 480;
+			posy = 430;
+
+			if (listaRelacionCliente != null) {
+				for (Object b : listaRelacionCliente) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista relacion clientes
+
+			// lista segmentos clientes
+			// canvas.beginText();
+			posx = 630;
+			posy = 430;
+
+			if (listaSegmentoCliente != null) {
+				for (Object b : listaSegmentoCliente) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista segmentos cliente
+
+			// lista recursos clave
+			// canvas.beginText();
+			posx = 170;
+			posy = 270;
+			if (listaRecursoClave != null) {
+				for (Object b : listaRecursoClave) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista recursos clave
+
+			// lista distribucion
+			// canvas.beginText();
+			posx = 480;
+			posy = 270;
+			if (listaCanalDistribucion != null) {
+				for (Object b : listaCanalDistribucion) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista distribucion
+
+			// lista estructura costos
+			// canvas.beginText();
+			posx = 20;
+			posy = 120;
+			if (listaEstructura != null) {
+				for (Object b : listaEstructura) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista distribucion
+
+			// lista fuente de ingresos
+			// canvas.beginText();
+			posx = 400;
+			posy = 120;
+			if (listaFuente != null) {
+				for (Object b : listaFuente) {
+
+					EntidadComponente compo = (EntidadComponente) b;
+					BaseFont fuente = BaseFont.createFont();
+					canvas.setFontAndSize(fuente, 10);
+					canvas.beginText();
+
+					if (compo.getColor().equals(Constantes.AMARILLO))
+						canvas.setRGBColorFill(255, 217, 0);// amarillo
+					if (compo.getColor().equals(Constantes.AZUL))
+						canvas.setRGBColorFill(0, 20, 137);// azul
+					if (compo.getColor().equals(Constantes.VERDE))
+						canvas.setRGBColorFill(0, 171, 132);// verde
+					if (compo.getColor().equals(Constantes.ROJO))
+						canvas.setRGBColorFill(249, 56, 34);// rojo
+
+					String va = compo.getDescripcion();
+
+					String[] cad = va.split(" ");
+					StringBuilder tex = new StringBuilder();
+					int rep = Math.round(cad.length / cantidad);
+
+					if (cad.length <= cantidad) {
+						for (int j = 0; j < cad.length; j++) {
+							tex.append(cad[j]);
+							tex.append(" ");
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), posx, posy, 0);
+						Log.e("let", tex.toString());
+					} else {
+						int k = 0;
+						int lon = cad.length - k;
+						for (int i = 0; i < rep + 1; i++) {
+
+							if (lon <= cantidad) {
+								for (int j = 0; j < lon; j++) {
+									tex.append(cad[k]);
+									tex.append(" ");
+									k++;
+								}
+								canvas.showTextAligned(
+										PdfContentByte.ALIGN_LEFT,
+										tex.toString(), posx, posy, 0);
+								Log.e("let", tex.toString());
+								break;
+							}
+
+							for (int j = 0; j < cantidad; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+
+							lon = cad.length - k;// lo que falta
+
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+									tex.toString(), posx, posy, 0);
+							Log.e("let", tex.toString());
+							posy -= 15;
+							tex = new StringBuilder();
+
+						}
+					}
+					canvas.endText();
+					posy -= 20;
+				}
+			}
+
+			// lista fuente de ingresos
 			
+			//titulo			
+			posx = 340;
+			posy = 500;
+			canvas.setRGBColorFill(0, 0, 0);// amarillo
+			canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,autorCanvas, posx, posy, 0);
+			
+			posx = 520;
+			canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,nombreCanvas, posx, posy, 0);
+						
+			//
+
 			documento.close();
 			reader.close();
 

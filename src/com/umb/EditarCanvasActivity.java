@@ -111,7 +111,7 @@ public class EditarCanvasActivity extends Activity {
 				Intent intent = new Intent(this,CanvasActivity.class);
 				intent.putExtra("idcanvas",x1.getId());
 				intent.putExtra("nombrecanvas", x1.getNombre());
-				
+				intent.putExtra("autorcanvas", x1.getAutor());
 				startActivity(intent);
 			}
 			else{

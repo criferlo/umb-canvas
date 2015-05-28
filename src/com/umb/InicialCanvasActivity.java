@@ -65,6 +65,7 @@ public class InicialCanvasActivity extends Activity {
 				//iniciar a crear canvas
 				Intent x3 = new Intent(this, CanvasActivity.class);
 				x3.putExtra("nombrecanvas", txtNombre.getText().toString());
+				x3.putExtra("autorcanvas", txtAutor.getText().toString());
 				x3.putExtra("idcanvas", id);
 				startActivity(x3);
 				finish();
