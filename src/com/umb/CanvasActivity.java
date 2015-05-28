@@ -123,96 +123,151 @@ public class CanvasActivity extends Activity {
 	private void exportarCanvas() {
 
 		try {
-			
-			//consultar canvas
-			
-			//consultar canvas
-			
-			//expotar plantilla
+
+			// consultar canvas
+
+			// consultar canvas
+
+			// expotar plantilla
 			AssetManager mngr = getAssets();
-			InputStream is = mngr.open("canvasfinal.pdf");			
-			OutputStream out = new FileOutputStream(crearFichero("template.pdf"));
-			
+			InputStream is = mngr.open("canvasfinal.pdf");
+			OutputStream out = new FileOutputStream(
+					crearFichero("template.pdf"));
+
 			int read = 0;
 			byte[] bytes = new byte[1024];
-	 
+
 			while ((read = is.read(bytes)) != -1) {
 				out.write(bytes, 0, read);
-			}	
-			
+			}
+
 			out.close();
 			is.close();
 			Log.e("mensaje", "template creado");
-			//explotar plantilla
-			
-			PdfReader reader = new PdfReader(getRuta()+"/template.pdf");
-			
-			
-			Document documento = new Document(PageSize.LETTER.rotate(),0,0,0,0);
+			// explotar plantilla
+
+			PdfReader reader = new PdfReader(getRuta() + "/template.pdf");
+
+			Document documento = new Document(PageSize.LETTER.rotate(), 0, 0,
+					0, 0);
 			File f = crearFichero(Constantes.NOMBRE_PDF);
 			// Creamos el flujo de datos de salida para el fichero donde
 			// guardaremos el pdf.
 			FileOutputStream ficheroPdf = new FileOutputStream(
 					f.getAbsolutePath());
 			// Asociamos el flujo que acabamos de crear al documento.
-			PdfWriter  writer = PdfWriter.getInstance(documento, ficheroPdf);
+			PdfWriter writer = PdfWriter.getInstance(documento, ficheroPdf);
 			// Abrimos el documento.
-			documento.open();		
-			
+			documento.open();
+
 			PdfContentByte canvas = writer.getDirectContent();
-			PdfImportedPage page = writer.getImportedPage(reader,1);
-			//page.setHorizontalScaling(20);
-			
-			//documento.newPage();
-			//para el canvas de la pagina
-			//canvas.addTemplate(page, 0.2f, 0, 0, 0.2f, 80, 20);
+			PdfImportedPage page = writer.getImportedPage(reader, 1);
+			// page.setHorizontalScaling(20);
+
+			// documento.newPage();
+			// para el canvas de la pagina
+			// canvas.addTemplate(page, 0.2f, 0, 0, 0.2f, 80, 20);
 			canvas.addTemplate(page, 1.2f, 0, 0, 1.2f, -10, 20);
-			/*Font font = FontFactory.getFont(FontFactory.HELVETICA, 28,
-					Font.BOLD, Color.RED);*/
-						
+			Font fontAmarillo = FontFactory.getFont(FontFactory.HELVETICA, 8,
+					Font.NORMAL, Color.YELLOW);
+
 			BaseFont fuente = BaseFont.createFont();
-			
-			canvas.setFontAndSize(fuente, 8);
-			
-			
-			//canvas.showText("ssss");
-			canvas.showTextAligned(PdfContentByte.ALIGN_CENTER, "ESTA ES UNA PRUEBA DE TEXTO EXTREMADAMENTE LARGO", 140, 440, 0);
-			
-			//http://itextpdf.com/examples/iia.php?id=113
-			
+			// BaseFont fuente = fontAmarillo.getBaseFont();
+
+			canvas.setFontAndSize(fuente, 12);
+
+			// canvas.showText("ssss");
+			canvas.beginText();
+			// canvas.setRGBColorFill(255,217, 0);//amarillo
+			canvas.setRGBColorFill(0, 20, 137);// azul
+			// canvas.setRGBColorFill(0,171, 132);//verde
+			// canvas.setRGBColorFill(249,56, 34);//rojo
+			int posy = 440;
+			int cantidad = 4;
+			String va = "ESTA ES UNA PRUEBA MAS LARGA PERO SERA QUE ESTA VAINA SI FUNCIONA";
+
+			String[] cad = va.split(" ");
+			StringBuilder tex = new StringBuilder();
+			int rep = Math.round(cad.length / cantidad);
+
+			if (cad.length <= cantidad) {
+				for (int j = 0; j < cad.length; j++) {
+					tex.append(cad[j]);
+					// escriba
+					canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+							tex.toString(), 15, posy, 0);
+					Log.e("let", tex.toString());
+				}
+			} else {
+				int k=0;
+				int lon=cad.length-k;
+				for (int i = 0; i < rep+1; i++) {
+					
+					if(lon<=cantidad){
+						for(int j=0;j<lon;j++){
+							tex.append(cad[k]);
+							k++;
+						}
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+								tex.toString(), 15, posy, 0);
+						Log.e("let", tex.toString());
+						break;
+					}
+					
+					for (int j = 0; j < cantidad; j++) {						
+						tex.append(cad[k]);
+						k++;
+					}
+					
+					lon = cad.length-k;//lo que falta
+					
+					canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+							tex.toString(), 15, posy, 0);
+					Log.e("let", tex.toString());
+					posy-=15;	
+					tex = new StringBuilder();
+
+				}
+			}
+
+			canvas.endText();
+
+			// http://itextpdf.com/examples/iia.php?id=113
 
 			// Añadimos un título con una fuente personalizada.
-			
-			//documento.add(new Paragraph("Título personalizado", font));
 
-			//PdfPCell cell = new PdfPCell();
-		
-			
-			// Insertamos una imagen que se encuentra en los recursos de la aplicación.
-			/*Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.canvasvacio2);
-			
-			ByteArrayOutputStream stream = new ByteArrayOutputStream();
-			
-			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-			Image imagen = Image.getInstance(stream.toByteArray());
-			
-			imagen.setAbsolutePosition(0,-3);
-			
-			documento.add(imagen);
-			
-			// Añadimos un título con la fuente por defecto.
-			documento.add(new Paragraph("Título 1"));*/
-			
-			
+			// documento.add(new Paragraph("Título personalizado", font));
+
+			// PdfPCell cell = new PdfPCell();
+
+			// Insertamos una imagen que se encuentra en los recursos de la
+			// aplicación.
+			/*
+			 * Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
+			 * R.drawable.canvasvacio2);
+			 * 
+			 * ByteArrayOutputStream stream = new ByteArrayOutputStream();
+			 * 
+			 * bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream); Image
+			 * imagen = Image.getInstance(stream.toByteArray());
+			 * 
+			 * imagen.setAbsolutePosition(0,-3);
+			 * 
+			 * documento.add(imagen);
+			 * 
+			 * // Añadimos un título con la fuente por defecto.
+			 * documento.add(new Paragraph("Título 1"));
+			 */
+
 			documento.close();
 			reader.close();
-			
+
 			Uri path = Uri.fromFile(f);
-            Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
-            pdfIntent.setDataAndType(path, "application/pdf");
-            pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(pdfIntent);
-	        
+			Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
+			pdfIntent.setDataAndType(path, "application/pdf");
+			pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(pdfIntent);
+
 		} catch (Exception ex) {
 			Log.e("error", ex.getMessage());
 		}
