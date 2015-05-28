@@ -184,7 +184,7 @@ public class CanvasActivity extends Activity {
 			// canvas.setRGBColorFill(249,56, 34);//rojo
 			int posy = 440;
 			int cantidad = 4;
-			String va = "ESTA ES UNA PRUEBA MAS LARGA PERO SERA QUE ESTA VAINA SI FUNCIONA";
+			String va = "Vacano si está funcionando bien, gracias Dios mío ojalá no vaya a joder esta vieja porque no funciona para iphone";
 
 			String[] cad = va.split(" ");
 			StringBuilder tex = new StringBuilder();
@@ -193,11 +193,13 @@ public class CanvasActivity extends Activity {
 			if (cad.length <= cantidad) {
 				for (int j = 0; j < cad.length; j++) {
 					tex.append(cad[j]);
+					tex.append(" ");
 					// escriba
-					canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
-							tex.toString(), 15, posy, 0);
-					Log.e("let", tex.toString());
+					
 				}
+				canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
+						tex.toString(), 15, posy, 0);
+				Log.e("let", tex.toString());
 			} else {
 				int k=0;
 				int lon=cad.length-k;
@@ -206,6 +208,7 @@ public class CanvasActivity extends Activity {
 					if(lon<=cantidad){
 						for(int j=0;j<lon;j++){
 							tex.append(cad[k]);
+							tex.append(" ");
 							k++;
 						}
 						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
@@ -216,6 +219,7 @@ public class CanvasActivity extends Activity {
 					
 					for (int j = 0; j < cantidad; j++) {						
 						tex.append(cad[k]);
+						tex.append(" ");
 						k++;
 					}
 					
