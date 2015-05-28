@@ -26,6 +26,8 @@ import com.lowagie.text.pdf.PdfReader;
 import com.lowagie.text.pdf.PdfWriter;
 import com.umb.adapter.ItemComponenteAdapter;
 import com.umb.datos.ComponenteHelper;
+import com.umb.datos.entidades.EntidadCanvas;
+import com.umb.datos.entidades.EntidadComponente;
 import com.umb.util.Constantes;
 
 import android.app.ActionBar;
@@ -54,13 +56,35 @@ public class CanvasActivity extends Activity {
 	private long idcanvas;
 	private String nombreCanvas;
 	TextView titulo1boton;
+	TextView titulo2boton;
+	TextView titulo3boton;
+	TextView titulo4boton;
+	TextView titulo5boton;
+	TextView titulo6boton;
+	TextView titulo7boton;
+	TextView titulo8boton;
+	TextView titulo9boton;
+	ComponenteHelper x3;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canvas);
+
+		// helper
+		x3 = new ComponenteHelper(getApplicationContext(), null, null,
+				Constantes.getVersionBd());
+
 		// aterrizar
 		titulo1boton = (TextView) findViewById(R.id.titulo1boton);
+		titulo2boton = (TextView) findViewById(R.id.titulo2boton);
+		titulo3boton = (TextView) findViewById(R.id.titulo3boton);
+		titulo4boton = (TextView) findViewById(R.id.titulo4boton);
+		titulo5boton = (TextView) findViewById(R.id.titulo5boton);
+		titulo6boton = (TextView) findViewById(R.id.titulo6boton);
+		titulo7boton = (TextView) findViewById(R.id.titulo7boton);
+		titulo8boton = (TextView) findViewById(R.id.titulo8boton);
+		titulo9boton = (TextView) findViewById(R.id.titulo9boton);
 		// parametros
 		Bundle x1 = getIntent().getExtras();
 		setTitle(x1.getString("nombrecanvas"));
@@ -75,8 +99,7 @@ public class CanvasActivity extends Activity {
 	}
 
 	private void contarComponentes() {
-		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
-				null, null, Constantes.getVersionBd());
+
 		List<Object> x4 = null;
 		try {
 			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.SOCIO);
@@ -84,6 +107,55 @@ public class CanvasActivity extends Activity {
 				titulo1boton.setText(getString(R.string.titulo1boton) + "("
 						+ x4.size() + ")");
 			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.ACTIVIDAD);
+			if (x4 != null) {
+				titulo2boton.setText(getString(R.string.titulo2boton) + "("
+						+ x4.size() + ")");
+			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.PROPUESTA);
+			if (x4 != null) {
+				titulo3boton.setText(getString(R.string.titulo3boton) + "("
+						+ x4.size() + ")");
+			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.RELACION_CLIENTE);
+			if (x4 != null) {
+				titulo4boton.setText(getString(R.string.titulo4boton) + "("
+						+ x4.size() + ")");
+			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.SEGMENTO_CLIENTE);
+			if (x4 != null) {
+				titulo5boton.setText(getString(R.string.titulo5boton) + "("
+						+ x4.size() + ")");
+			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.RECURSOS_CLAVE);
+			if (x4 != null) {
+				titulo6boton.setText(getString(R.string.titulo6boton) + "("
+						+ x4.size() + ")");
+			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.CANALES_DISTRIBUCION);
+			if (x4 != null) {
+				titulo7boton.setText(getString(R.string.titulo7boton) + "("
+						+ x4.size() + ")");
+			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.ESTRUCTURA_COSTOS);
+			if (x4 != null) {
+				titulo8boton.setText(getString(R.string.titulo8boton) + "("
+						+ x4.size() + ")");
+			}
+			
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.FUENTES_INGRESO);
+			if (x4 != null) {
+				titulo9boton.setText(getString(R.string.titulo9boton) + "("
+						+ x4.size() + ")");
+			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -126,13 +198,38 @@ public class CanvasActivity extends Activity {
 
 			// consultar canvas
 
+			List<Object> listaSocio = null;
+			List<Object> listaActividades = null;
+			List<Object> listaPropuesta = null;
+			List<Object> listaRelacionCliente = null;
+			List<Object> listaSegmentoCliente = null;
+			List<Object> listaRecursoClave = null;
+			List<Object> listaCanalDistribucion = null;
+			List<Object> listaEstructura = null;
+			List<Object> listaFuente = null;
+			try {
+				
+				listaSocio = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.SOCIO);
+				listaActividades = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.ACTIVIDAD);
+				listaPropuesta = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.PROPUESTA);
+				listaRelacionCliente = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.RELACION_CLIENTE);
+				listaSegmentoCliente = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.SEGMENTO_CLIENTE);
+				listaRecursoClave = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.RECURSOS_CLAVE);
+				listaCanalDistribucion = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.CANALES_DISTRIBUCION);
+				listaEstructura = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.ESTRUCTURA_COSTOS);
+				listaFuente = x3.consultarTodosPorPlanyTipo(idcanvas,Constantes.FUENTES_INGRESO);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 			// consultar canvas
 
 			// expotar plantilla
 			AssetManager mngr = getAssets();
 			InputStream is = mngr.open("canvasfinal.pdf");
-			OutputStream out = new FileOutputStream(
-					crearFichero("template.pdf"));
+			OutputStream out = new FileOutputStream(crearFichero("template.pdf"));
 
 			int read = 0;
 			byte[] bytes = new byte[1024];
@@ -140,7 +237,6 @@ public class CanvasActivity extends Activity {
 			while ((read = is.read(bytes)) != -1) {
 				out.write(bytes, 0, read);
 			}
-
 			out.close();
 			is.close();
 			Log.e("mensaje", "template creado");
@@ -148,121 +244,99 @@ public class CanvasActivity extends Activity {
 
 			PdfReader reader = new PdfReader(getRuta() + "/template.pdf");
 
-			Document documento = new Document(PageSize.LETTER.rotate(), 0, 0,
-					0, 0);
+			Document documento = new Document(PageSize.LETTER.rotate(), 0, 0, 0, 0);
 			File f = crearFichero(Constantes.NOMBRE_PDF);
-			// Creamos el flujo de datos de salida para el fichero donde
-			// guardaremos el pdf.
-			FileOutputStream ficheroPdf = new FileOutputStream(
-					f.getAbsolutePath());
-			// Asociamos el flujo que acabamos de crear al documento.
+			FileOutputStream ficheroPdf = new FileOutputStream(f.getAbsolutePath());
 			PdfWriter writer = PdfWriter.getInstance(documento, ficheroPdf);
-			// Abrimos el documento.
 			documento.open();
 
 			PdfContentByte canvas = writer.getDirectContent();
 			PdfImportedPage page = writer.getImportedPage(reader, 1);
-			// page.setHorizontalScaling(20);
 
-			// documento.newPage();
-			// para el canvas de la pagina
-			// canvas.addTemplate(page, 0.2f, 0, 0, 0.2f, 80, 20);
 			canvas.addTemplate(page, 1.2f, 0, 0, 1.2f, -10, 20);
-			Font fontAmarillo = FontFactory.getFont(FontFactory.HELVETICA, 8,
-					Font.NORMAL, Color.YELLOW);
+			/*Font fontAmarillo = FontFactory.getFont(FontFactory.HELVETICA, 8,
+					Font.NORMAL, Color.YELLOW);*/
 
-			BaseFont fuente = BaseFont.createFont();
-			// BaseFont fuente = fontAmarillo.getBaseFont();
+			// iteramos la lista para mostrar por categoria
+			int posysocios = 430;
+			int posyactividades = 430;
+			int posypropuesta = 430;
+			int posyrelacioncliente = 430;
+			int posysegmentocliente = 430;
+			int posyrecursosclave = 430;
+			int posycanales = 430;
+			int posyestructura = 430;
+			int posyfuentesingreso = 430;
 
-			canvas.setFontAndSize(fuente, 12);
-
-			// canvas.showText("ssss");
-			canvas.beginText();
-			// canvas.setRGBColorFill(255,217, 0);//amarillo
-			canvas.setRGBColorFill(0, 20, 137);// azul
-			// canvas.setRGBColorFill(0,171, 132);//verde
-			// canvas.setRGBColorFill(249,56, 34);//rojo
-			int posy = 440;
 			int cantidad = 4;
-			String va = "Vacano si está funcionando bien, gracias Dios mío ojalá no vaya a joder esta vieja porque no funciona para iphone";
+			
+			//listasocios
+			for (Object b : listaSocio) {
 
-			String[] cad = va.split(" ");
-			StringBuilder tex = new StringBuilder();
-			int rep = Math.round(cad.length / cantidad);
+				EntidadComponente compo = (EntidadComponente) b;
+				BaseFont fuente = BaseFont.createFont();
+				canvas.setFontAndSize(fuente, 10);
+				canvas.beginText();
+				
+				if(compo.getColor().equals(Constantes.AMARILLO))
+					canvas.setRGBColorFill(255,217, 0);//amarillo
+				if(compo.getColor().equals(Constantes.AZUL))
+					canvas.setRGBColorFill(0, 20, 137);// azul
+				if(compo.getColor().equals(Constantes.VERDE))
+					canvas.setRGBColorFill(0,171, 132);//verde
+				if(compo.getColor().equals(Constantes.ROJO))
+					canvas.setRGBColorFill(249,56, 34);//rojo
+				
+				String va = compo.getDescripcion();
 
-			if (cad.length <= cantidad) {
-				for (int j = 0; j < cad.length; j++) {
-					tex.append(cad[j]);
-					tex.append(" ");
-					// escriba
-					
-				}
-				canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
-						tex.toString(), 15, posy, 0);
-				Log.e("let", tex.toString());
-			} else {
-				int k=0;
-				int lon=cad.length-k;
-				for (int i = 0; i < rep+1; i++) {
-					
-					if(lon<=cantidad){
-						for(int j=0;j<lon;j++){
+				String[] cad = va.split(" ");
+				StringBuilder tex = new StringBuilder();
+				int rep = Math.round(cad.length / cantidad);
+
+				if (cad.length <= cantidad) {
+					for (int j = 0; j < cad.length; j++) {
+						tex.append(cad[j]);
+						tex.append(" ");
+					}
+					canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,tex.toString(), 15, posysocios, 0);
+					Log.e("let", tex.toString());
+				} else {
+					int k = 0;
+					int lon = cad.length - k;
+					for (int i = 0; i < rep + 1; i++) {
+
+						if (lon <= cantidad) {
+							for (int j = 0; j < lon; j++) {
+								tex.append(cad[k]);
+								tex.append(" ");
+								k++;
+							}
+							canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,tex.toString(), 15, posysocios, 0);
+							Log.e("let", tex.toString());
+							break;
+						}
+
+						for (int j = 0; j < cantidad; j++) {
 							tex.append(cad[k]);
 							tex.append(" ");
 							k++;
 						}
-						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
-								tex.toString(), 15, posy, 0);
+
+						lon = cad.length - k;// lo que falta
+
+						canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,tex.toString(), 15, posysocios, 0);
 						Log.e("let", tex.toString());
-						break;
-					}
-					
-					for (int j = 0; j < cantidad; j++) {						
-						tex.append(cad[k]);
-						tex.append(" ");
-						k++;
-					}
-					
-					lon = cad.length-k;//lo que falta
-					
-					canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,
-							tex.toString(), 15, posy, 0);
-					Log.e("let", tex.toString());
-					posy-=15;	
-					tex = new StringBuilder();
+						posysocios -= 15;
+						tex = new StringBuilder();
 
+					}
 				}
+
+				canvas.endText();
+				posysocios -= 20;
 			}
-
-			canvas.endText();
-
-			// http://itextpdf.com/examples/iia.php?id=113
-
-			// Añadimos un título con una fuente personalizada.
-
-			// documento.add(new Paragraph("Título personalizado", font));
-
-			// PdfPCell cell = new PdfPCell();
-
-			// Insertamos una imagen que se encuentra en los recursos de la
-			// aplicación.
-			/*
-			 * Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
-			 * R.drawable.canvasvacio2);
-			 * 
-			 * ByteArrayOutputStream stream = new ByteArrayOutputStream();
-			 * 
-			 * bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream); Image
-			 * imagen = Image.getInstance(stream.toByteArray());
-			 * 
-			 * imagen.setAbsolutePosition(0,-3);
-			 * 
-			 * documento.add(imagen);
-			 * 
-			 * // Añadimos un título con la fuente por defecto.
-			 * documento.add(new Paragraph("Título 1"));
-			 */
-
+			//listasocios
+			
 			documento.close();
 			reader.close();
 
@@ -347,35 +421,297 @@ public class CanvasActivity extends Activity {
 
 	}
 
+	// actividades clave
 	public void cliccanvas_2(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.ACTIVIDAD);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo2boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.ACTIVIDAD);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo2boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.ACTIVIDAD);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 
+	// propuesta de valor
 	public void cliccanvas_3(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas, Constantes.PROPUESTA);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo3boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.PROPUESTA);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo3boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.PROPUESTA);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 
+	// relacion con cliente
 	public void cliccanvas_4(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.RELACION_CLIENTE);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo4boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.RELACION_CLIENTE);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo4boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.RELACION_CLIENTE);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 
+	// segmentos de clientes
 	public void cliccanvas_5(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.SEGMENTO_CLIENTE);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo5boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.SEGMENTO_CLIENTE);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo5boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.SEGMENTO_CLIENTE);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 
+	// recursos clave
 	public void cliccanvas_6(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.RECURSOS_CLAVE);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo6boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.RECURSOS_CLAVE);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo6boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.RECURSOS_CLAVE);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 
+	// canales de distribucion
 	public void cliccanvas_7(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.CANALES_DISTRIBUCION);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo7boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.CANALES_DISTRIBUCION);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo7boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.CANALES_DISTRIBUCION);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 
+	// estructura de costos
 	public void cliccanvas_8(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.ESTRUCTURA_COSTOS);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo8boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.ESTRUCTURA_COSTOS);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo8boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.ESTRUCTURA_COSTOS);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 
+	// fuentes de ingreso
 	public void cliccanvas_9(View v) {
+		// consultar detalle del id del canvas
+		ComponenteHelper x3 = new ComponenteHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ArrayList<Object> x4 = null;
+		try {
+			x4 = x3.consultarTodosPorPlanyTipo(idcanvas,
+					Constantes.FUENTES_INGRESO);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// no encuentra detalles
+		if (x4 == null) {
+			Intent x1 = new Intent(this, SinComponenteActivity.class);
+			String x2 = getString(R.string.titulo9boton);
+			x1.putExtra("nombrecanvas", nombreCanvas);
+			x1.putExtra("idcanvas", idcanvas);
+			x1.putExtra("categoria", x2);
+			x1.putExtra("tipocomponente", Constantes.FUENTES_INGRESO);
+			startActivity(x1);
+		} else {
+			if (x4.size() > 0) {
+				Intent x5 = new Intent(this, ListaComponentesActivity.class);
+				String x2 = getString(R.string.titulo9boton);
+				x5.putExtra("nombrecanvas", nombreCanvas);
+				x5.putExtra("idcanvas", idcanvas);
+				x5.putExtra("categoria", x2);
+				x5.putExtra("tipocomponente", Constantes.FUENTES_INGRESO);
+				startActivity(x5);
+			}
+		}
+
+		// fin consultar
 	}
 }

@@ -57,6 +57,7 @@
                 android:onClick="cliccanvas_2" />
 
             <TextView
+                android:id="@+id/titulo2boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,6 +82,7 @@
                 android:onClick="cliccanvas_3" />
 
             <TextView
+                android:id="@+id/titulo3boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,6 +113,7 @@
                 android:onClick="cliccanvas_4" />
 
             <TextView
+                android:id="@+id/titulo4boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,6 +138,7 @@
                 android:onClick="cliccanvas_5" />
 
             <TextView
+                android:id="@+id/titulo5boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -159,6 +163,7 @@
                 android:onClick="cliccanvas_6" />
 
             <TextView
+                android:id="@+id/titulo6boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -189,6 +194,7 @@
                 android:onClick="cliccanvas_7" />
 
            <TextView
+               android:id="@+id/titulo7boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -213,6 +219,7 @@
                 android:onClick="cliccanvas_8" />
 
             <TextView
+                android:id="@+id/titulo8boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -237,6 +244,7 @@
                 android:onClick="cliccanvas_9" />
 
             <TextView
+                android:id="@+id/titulo9boton"
                 style="@style/tipoFuente.botones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
