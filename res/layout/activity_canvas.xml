@@ -34,9 +34,9 @@
             <TextView
                 android:id="@+id/titulo1boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo1boton" />
         </LinearLayout>
@@ -59,9 +59,9 @@
             <TextView
                 android:id="@+id/titulo2boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo2boton" />
         </LinearLayout>
@@ -84,9 +84,9 @@
             <TextView
                 android:id="@+id/titulo3boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo3boton" />
         </LinearLayout>
@@ -115,9 +115,9 @@
             <TextView
                 android:id="@+id/titulo4boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo4boton" />
         </LinearLayout>
@@ -140,9 +140,9 @@
             <TextView
                 android:id="@+id/titulo5boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo5boton" />
         </LinearLayout>
@@ -165,9 +165,9 @@
             <TextView
                 android:id="@+id/titulo6boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo6boton" />
         </LinearLayout>
@@ -196,9 +196,9 @@
            <TextView
                android:id="@+id/titulo7boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo7boton" />
         </LinearLayout>
@@ -221,9 +221,9 @@
             <TextView
                 android:id="@+id/titulo8boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo8boton" />
         </LinearLayout>
@@ -246,9 +246,9 @@
             <TextView
                 android:id="@+id/titulo9boton"
                 style="@style/tipoFuente.botones"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:gravity="center"
                 android:text="@string/titulo9boton" />
         </LinearLayout>

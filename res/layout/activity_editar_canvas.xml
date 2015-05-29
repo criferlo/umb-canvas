@@ -40,7 +40,7 @@
         android:id="@+id/txtEditarDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="textMultiLine" />
 
     <TextView
         style="@style/tipoFuente"

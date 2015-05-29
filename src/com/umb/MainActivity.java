@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import com.umb.datos.BaseHelper;
 import com.umb.datos.CanvasHelper;
+import com.umb.datos.ComponenteHelper;
 import com.umb.datos.entidades.EntidadCanvas;
+import com.umb.datos.entidades.EntidadComponente;
 import com.umb.util.Constantes;
 
 import android.annotation.SuppressLint;
@@ -38,6 +40,23 @@ public class MainActivity extends Activity {
 		BaseHelper baseHelper = new BaseHelper(this, Constantes.getNombreBD(),
 				null, Constantes.getVersionBd());
 		SQLiteDatabase base = baseHelper.getWritableDatabase();
+		
+		//crear canvas ejemplo
+		CanvasHelper canvashelper = new CanvasHelper(getApplicationContext(), null, null, Constantes.getVersionBd());
+		ComponenteHelper componentehelper = new ComponenteHelper(getApplicationContext(), null, null, Constantes.getVersionBd());
+		Constantes con = new Constantes();
+	
+		try {
+			long idcanvas = canvashelper.crear(con.getCanvas());
+			con.getCliente1().setCanvas_id(idcanvas);
+			componentehelper.crear(con.getCliente1());
+			
+		} catch (Exception e) {			
+			e.printStackTrace();
+		}
+		
+		//
+		
 		if (base != null) {
 			base.close();
 		} else {

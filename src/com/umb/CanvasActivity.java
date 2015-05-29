@@ -973,12 +973,16 @@ public class CanvasActivity extends Activity {
 			//titulo			
 			posx = 340;
 			posy = 500;
+			
+			BaseFont fuente = BaseFont.createFont();
+			canvas.setFontAndSize(fuente, 10);
+			canvas.beginText();
 			canvas.setRGBColorFill(0, 0, 0);// amarillo
 			canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,autorCanvas, posx, posy, 0);
 			
 			posx = 520;
 			canvas.showTextAligned(PdfContentByte.ALIGN_LEFT,nombreCanvas, posx, posy, 0);
-						
+			canvas.endText();			
 			//
 
 			documento.close();

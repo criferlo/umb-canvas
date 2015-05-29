@@ -49,5 +49,10 @@
     <string name="title_activity_editar_componente">EditarComponenteActivity</string>
     <string name="title_activity_lista_canvas">ListaCanvasActivity</string>
     <string name="title_activity_editar_canvas">EditarCanvasActivity</string>
+    
+    <string name="principal_crear_nueva_idea">Crear nueva idea</string>
+    <string name="principal_listar_ideas">Tus ideas</string>
+    <string name="principal_ayuda">Ayuda</string>
+    
 
 </resources>
