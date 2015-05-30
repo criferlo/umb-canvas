@@ -160,6 +160,33 @@ public class CanvasHelper extends SQLiteOpenHelper implements ICrud {
 		return lista;
 	}
 	
+	
+	public boolean consultarSiExisteEjemplo(String parte) throws Exception{
+		SQLiteDatabase data = this.getReadableDatabase();
+		String[] columns = {"id","nombre","descripcion","creador"};
+		String[] args = {parte};
+		Cursor cursor = data.query("canvas", columns, "nombre=?", args , null, null, null);
+		
+		EntidadCanvas entidad = null;
+		
+		if(cursor.moveToFirst()){			
+			
+			do{
+				entidad = new EntidadCanvas();
+				entidad.setId(cursor.getLong(0));
+				entidad.setNombre(cursor.getString(1));
+				entidad.setDescripcion(cursor.getString(2));
+				entidad.setAutor(cursor.getString(3));
+			}while(cursor.moveToNext());
+		}
+		else{
+			return false;
+		}
+		cursor.close();
+		data.close();
+		return true;
+	}
+	
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {

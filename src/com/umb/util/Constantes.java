@@ -44,7 +44,7 @@ public class Constantes {
 
 	private static String nombreBD = "canvasbd";
 
-	private static int versionBd = 15;
+	private static int versionBd = 18;
 
 	public static String AUTOR_EJEMPLO = "TeleHuerta";
 
@@ -183,8 +183,8 @@ public class Constantes {
 		
 		//socios
 		so1.setColor(Constantes.AZUL);
-		so1.setDescripcion("Proveedor tecnológico: sensores dispositivos");
-		so1.setNombre("Proveedor tecnológico: sensores dispositivos");
+		so1.setDescripcion("Proveedor tecnológico: sensores");
+		so1.setNombre("Proveedor tecnológico: sensores");
 		so1.setTipocomponente(Constantes.SOCIO);
 		so2.setColor(Constantes.AZUL);
 		so2.setDescripcion("Punto de atención al cliente: helpdesk");

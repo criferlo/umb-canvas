@@ -53,7 +53,7 @@ public class ItemCanvasAdapter extends BaseAdapter{
 		TextView txtDescripción = (TextView) rowView.findViewById(R.id.txtDescripcionCanvas);
 		EntidadCanvas item = (EntidadCanvas) this.items.get(position);
 		
-		txtNombre.setText(item.getDescripcion());
+		txtNombre.setText(item.getNombre());
 		txtDescripción.setText(item.getDescripcion());
 		
 		return rowView;

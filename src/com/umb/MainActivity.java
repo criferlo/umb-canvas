@@ -22,6 +22,7 @@ import android.view.Window;
 
 /***
  * Activity principal
+ * 
  * @author pc1
  *
  */
@@ -33,30 +34,85 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		setTitle("Canvas");
 		crearBD();
-		
+
 	}
 
 	private void crearBD() {
 		BaseHelper baseHelper = new BaseHelper(this, Constantes.getNombreBD(),
 				null, Constantes.getVersionBd());
 		SQLiteDatabase base = baseHelper.getWritableDatabase();
-		
-		//crear canvas ejemplo
-		CanvasHelper canvashelper = new CanvasHelper(getApplicationContext(), null, null, Constantes.getVersionBd());
-		ComponenteHelper componentehelper = new ComponenteHelper(getApplicationContext(), null, null, Constantes.getVersionBd());
+
+		// crear canvas ejemplo
+		CanvasHelper canvashelper = new CanvasHelper(getApplicationContext(),
+				null, null, Constantes.getVersionBd());
+		ComponenteHelper componentehelper = new ComponenteHelper(
+				getApplicationContext(), null, null, Constantes.getVersionBd());
+
 		Constantes con = new Constantes();
-	
+
 		try {
-			long idcanvas = canvashelper.crear(con.getCanvas());
-			con.getCliente1().setCanvas_id(idcanvas);
-			componentehelper.crear(con.getCliente1());
-			
-		} catch (Exception e) {			
+			if (!canvashelper.consultarSiExisteEjemplo(con.getCanvas()
+					.getNombre())) {
+
+				long idcanvas = canvashelper.crear(con.getCanvas());
+				con.getCliente1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getCliente1());
+				con.getCliente2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getCliente2());
+				con.getProp1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getProp1());
+				con.getProp2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getProp2());
+				con.getCanal1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getCanal1());
+				con.getCanal2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getCanal2());
+				con.getCanal3().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getCanal3());
+				con.getRelcli1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getRelcli1());
+				con.getRelcli2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getRelcli2());
+				con.getFu1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getFu1());
+				con.getFu2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getFu2());
+				con.getFu3().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getFu3());
+				con.getFu4().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getFu4());
+				con.getAc1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getAc1());
+				con.getAc2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getAc2());
+				con.getAc3().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getAc3());
+				con.getRc1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getRc1());
+				con.getRc2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getRc2());
+				con.getRc3().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getRc3());
+				con.getRc4().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getRc4());
+				con.getSo1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getSo1());
+				con.getSo2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getSo2());
+				con.getEcos1().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getEcos1());
+				con.getEcos2().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getEcos2());
+				con.getEcos3().setCanvas_id(idcanvas);
+				componentehelper.crear(con.getEcos3());
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		//
-		
+
 		if (base != null) {
 			base.close();
 		} else {
@@ -69,7 +125,7 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 		overridePendingTransition(R.anim.zoom_entra, R.anim.zoom_sale);
 	}
-	
+
 	public void clicListaCanvas(View view) {
 		Intent intent = new Intent(this, ListaCanvasActivity.class);
 		startActivity(intent);
